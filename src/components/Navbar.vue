@@ -1,72 +1,98 @@
 <template>
-  <div class="navbar">
-      <div class="logo">
-          <img src="../assets/WayedNavIco.png" alt="wayed">
-      </div>
-      <div class="left-menu">
-          <p>Who We Are</p>
-          <p>How It Works</p>
-          <p>Technology</p>
-          <q-btn class="btn" color="black" label="Whitepaper" />
-      </div>
+  <div @scroll="scrl" :style="scrollStyle" class="navbar">
+    <div class="logo">
+      <img src="../assets/WayedNavIco.png" alt="wayed" />
+    </div>
+    <div class="left-menu">
+      <p>Who We Are</p>
+      <p>How It Works</p>
+      <p>Technology</p>
+      <q-btn class="btn" color="black" label="Whitepaper" />
+    </div>
   </div>
 </template>
 
 <script>
+import { ref, onMounted } from "vue";
 export default {
   name: "MainLayout",
 
   components: {},
 
   setup() {
-    return {};
+    const scrollStyle = ref(null);
+
+    const scrl = () => {
+      console.log(window.scrollY)
+      if (window.scrollY > 0) {
+        scrollStyle.value = {
+          background: "white",
+          height: `70px`,
+          boxSadow: `0px 2px 10px rgb(12 39 34 / 5%)`
+        };
+      } else {
+        scrollStyle.value = {
+          background: "transparent",
+          boxShadow: "none",
+        };
+      }
+    };
+
+    onMounted(() => {
+      window.addEventListener("scroll", scrl);
+    });
+
+    return {
+      scrollStyle,
+      scrl,
+    };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-
 .navbar {
-    position: fixed;
-    top: 0;
-    display: flex;
-    padding: 20px;
-    z-index: 15;
-    background: white;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 81px;
-    background: #fff;
-    box-shadow: 0px 2px 10px rgb(12 39 34 / 5%);
-    transition: 0.2s all;
+  position: fixed;
+  top: 0;
+  display: flex;
+  padding: 20px;
+  z-index: 15;
+  background: transparent;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 81px;
+  box-shadow: none;
+  transition: 0.2s all;
 }
-.logo{
-    img {
-        width: 180px;
-        padding: 15px;
-    }
+
+.logo {
+  img {
+    width: 180px;
+    padding: 15px;
+  }
 }
 .left-menu {
-    display: flex;
-    align-items: center;
-    p{
-        margin: 0 20px 0 0;
-        border-bottom: 2px solid black;
-        border-width: 0px;
-        font-size: 1em;
-        transition: all 0.1s;
-        cursor: pointer;
-    }
-    p:hover {
-        border-width: 2px;
-    }
+  display: flex;
+  align-items: center;
+  p {
+    margin: 0 20px 0 0;
+    border-bottom: 2px solid black;
+    border-width: 0px;
+    // font-size: 1em;
+    font-size: 18px;
+    transition: all 0.1s;
+    cursor: pointer;
+  }
+  p:hover {
+    border-width: 2px;
+  }
 }
 .btn {
-    background-color: black !important;
-    transition: all .2s;
+  background-color: black !important;
+  transition: all 0.2s;
 }
 .btn:hover {
-    background-color: #399CC2 !important;
+  background-color: #399cc2 !important;
 }
 </style>

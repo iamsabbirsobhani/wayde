@@ -14,7 +14,13 @@
       </div>
       <div class="front-btn">
         <q-btn class="btn" size="18px" color="black" label="Whitepaper" />
-        <q-btn class="btn2" size="18px" no-wrap color="black" label="Early access" />
+        <q-btn
+          class="btn2"
+          size="18px"
+          no-wrap
+          color="black"
+          label="Early access"
+        />
       </div>
     </div>
   </div>
@@ -27,7 +33,7 @@ export default {};
 <style lang="scss" scoped>
 .front-template {
   position: relative;
-  top: 150px;
+  top:0;
   z-index: 11;
   max-width: 1000px;
   margin: auto;
@@ -45,7 +51,7 @@ export default {};
     max-width: 600px;
     margin: auto;
   }
-  .front-btn{
+  .front-btn {
     display: flex;
     justify-content: space-evenly;
     width: 10px;
@@ -57,14 +63,34 @@ export default {};
     margin-left: 20px;
   }
   .btn2 {
-      margin: auto;
-      margin-left: 20px;
-          width: 200px !important;
-          background: white !important;
-          border: 2px solid black !important;
-          color: black !important;
-      span {
-      }
+    margin: auto;
+    margin-left: 20px;
+    width: 200px !important;
+    background: white !important;
+    border: 2px solid black !important;
+    color: black !important;
+    span {
+    }
   }
+}
+// .bgImage {
+//   position: absolute;
+//   width: 100%;
+//   height: inherit;
+// }
+.frontPage {
+  /* The image used */
+    background-image: url("../assets/main-deco-bg.png");
+
+  /* Full height */
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f9;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
 }
 </style>
