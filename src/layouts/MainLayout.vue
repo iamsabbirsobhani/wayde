@@ -2,6 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <Navbar/>
     <FrontPage/>
+    <ExploreOffer/>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -11,12 +12,14 @@
 <script>
 import Navbar from '../components/Navbar'
 import FrontPage from '../components/FrontPage'
+import ExploreOffer from '../components/ExploreOffer.vue'
 export default {
   name: 'MainLayout',
 
   components: {
     Navbar,
-    FrontPage
+    FrontPage,
+    ExploreOffer
   },
 
   setup () {
