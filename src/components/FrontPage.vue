@@ -28,6 +28,7 @@ export default {};
 .front-template {
   position: relative;
   top: 150px;
+  z-index: 11;
   max-width: 1000px;
   margin: auto;
   h1 {
