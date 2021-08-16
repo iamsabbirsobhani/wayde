@@ -7,7 +7,7 @@
         updates on our launch.
       </p>
       <form @submit.prevent="">
-        <q-input class="inp" outlined label="Email your email" type="email" required />
+        <q-input class="inp" outlined label="Enter your email" type="email" required />
         <q-btn class="btn" type="submit" size="16px" no-wrap color="black" label="Get updates" />
       </form>
     </div>
@@ -92,6 +92,9 @@ export default {
   .btn {
       width: 150px;
       margin-left: 20px;
+  }
+  .btn:hover{
+      background: #399cc2 !important;
   }
   .inp {
       width: 250px;
