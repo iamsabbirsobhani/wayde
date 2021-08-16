@@ -31,7 +31,7 @@ export default {
     top: 0;
     display: flex;
     padding: 20px;
-    z-index: 10;
+    z-index: 15;
     background: white;
     justify-content: space-between;
     align-items: center;
