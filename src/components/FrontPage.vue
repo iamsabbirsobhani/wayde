@@ -8,7 +8,7 @@
     <div class="front-template">
       <div class="front-typo">
         <h1>
-          SOFTWARE CONSULTING AND DEVELOPMENT <br />
+          SOFTWARE <strong>CONSULTING</strong> AND DEVELOPMENT <br />
           FOR YOUR DIGITAL SUCCESS
         </h1>
         <p>
@@ -50,6 +50,46 @@ export default {};
     line-height: 1.5;
     color: #222;
   }
+
+  h1 strong {
+    font-weight: 450;
+    font-style: italic;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -ms-background-clip: text;
+    -ms-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    display: inline-block;
+    animation: 0.8s shake infinite alternate;
+    background-color: #191c1f;
+    color: #191c1f;
+  }
+
+  @keyframes shake {
+    0% {
+      transform: skewX(-15deg);
+    }
+
+    5% {
+      transform: skewX(15deg);
+    }
+    10% {
+      transform: skewX(-15deg);
+    }
+    15% {
+      transform: skewX(15deg);
+    }
+    20% {
+      transform: skewX(0deg);
+    }
+    100% {
+      transform: skewX(0deg);
+    }
+  }
+
   p {
     text-align: center;
     color: gray;
