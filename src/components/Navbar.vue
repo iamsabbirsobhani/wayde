@@ -43,8 +43,8 @@ export default {
 }
 .logo{
     img {
-        width: 150px;
-        padding: 5px;
+        width: 180px;
+        padding: 15px;
     }
 }
 .left-menu {

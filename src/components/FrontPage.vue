@@ -60,6 +60,9 @@ export default {};
       margin: auto;
       margin-left: 20px;
           width: 200px !important;
+          background: white !important;
+          border: 2px solid black !important;
+          color: black !important;
       span {
       }
   }
