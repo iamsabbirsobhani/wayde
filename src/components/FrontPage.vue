@@ -2,6 +2,9 @@
   <div class="frontPage">
     <div id="radial"></div>
     <div id="radial2"></div>
+    <div class="deco-bg">
+      <img src="../assets/main-deco-bg.png" alt="" />
+    </div>
     <div class="front-template">
       <div class="front-typo">
         <h1>
@@ -78,17 +81,39 @@ export default {};
     color: black !important;
   }
 }
+// .frontPage {
+//   background-image: url("../assets/main-deco-bg.png");
+//   height: 100%;
+//   min-height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background: #f0f0f9;
+//   background-size: cover;
+//   position: relative;
+//   overflow: hidden;
+// }
 .frontPage {
-  background-image: url("../assets/main-deco-bg.png");
-  height: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("../assets/main-deco-bg.png");
+  /* background: url(../images/hero-bg2.png); */
   background: #f0f0f9;
   background-size: cover;
   position: relative;
   overflow: hidden;
+}
+
+.deco-bg {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  img {
+    width: 387px;
+    height: 387px;
+  }
 }
 
 #radial {
