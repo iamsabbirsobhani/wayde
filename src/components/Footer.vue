@@ -3,7 +3,7 @@
     <div class="left">
       <img src="../assets/WayedNavIco.png" alt="" />
       <p>
-        You don’t want to miss the news on Lossless. Subscribe - we’ll only send
+        You don’t want to miss the news on Wayde. Subscribe - we’ll only send
         updates on our launch.
       </p>
       <form @submit.prevent="">
@@ -20,7 +20,7 @@
         <p>GitHub</p>
       </div>
       <div class="lossless">
-        <h3>Lossless</h3>
+        <h3>Wayde</h3>
         <p>Technology</p>
         <p>Whitepaper</p>
       </div>
