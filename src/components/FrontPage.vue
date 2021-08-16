@@ -26,6 +26,8 @@ export default {};
 
 <style lang="scss" scoped>
 .front-template {
+  position: relative;
+  top: 150px;
   max-width: 1000px;
   margin: auto;
   h1 {
