@@ -1,6 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <Navbar/>
+    <FrontPage/>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -9,11 +10,13 @@
 
 <script>
 import Navbar from '../components/Navbar'
+import FrontPage from '../components/FrontPage'
 export default {
   name: 'MainLayout',
 
   components: {
-    Navbar
+    Navbar,
+    FrontPage
   },
 
   setup () {

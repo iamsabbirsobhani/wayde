@@ -27,7 +27,7 @@ export default {
 <style lang="scss" scoped>
 
 .navbar {
-    position: fixed;
+    // position: fixed;
     display: flex;
     padding: 20px;
     z-index: 10;
