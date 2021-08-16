@@ -23,17 +23,17 @@ export default {
     const scrollStyle = ref(null);
 
     const scrl = () => {
-      console.log(window.scrollY)
+      console.log(window.scrollY);
       if (window.scrollY > 0) {
         scrollStyle.value = {
           background: "white",
-          height: `70px`,
-          boxSadow: `0px 2px 10px rgb(12 39 34 / 5%)`
+          height: `80px`,
+          boxShadow: `0px 2px 10px rgb(12 39 34 / 5%)`,
         };
       } else {
         scrollStyle.value = {
-          background: "transparent",
           boxShadow: "none",
+          background: "transparent",
         };
       }
     };
@@ -61,7 +61,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 81px;
+  height: 91px;
   box-shadow: none;
   transition: 0.2s all;
 }
