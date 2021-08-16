@@ -32,6 +32,7 @@ export default {
     display: flex;
     padding: 20px;
     z-index: 10;
+    background: white;
     justify-content: space-between;
     align-items: center;
     width: 100%;
