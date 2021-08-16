@@ -35,11 +35,11 @@ export default {};
   position: relative;
   top:0;
   z-index: 11;
-  max-width: 1000px;
+  max-width: 1300px;
   margin: auto;
   h1 {
     text-align: center;
-    font-size: 40px;
+    font-size: 55px;
     font-weight: 550;
     padding: 0;
     line-height: 1.5;
@@ -50,6 +50,7 @@ export default {};
     color: gray;
     max-width: 600px;
     margin: auto;
+    font-size: 18px;
   }
   .front-btn {
     display: flex;
@@ -69,20 +70,10 @@ export default {};
     background: white !important;
     border: 2px solid black !important;
     color: black !important;
-    span {
-    }
   }
 }
-// .bgImage {
-//   position: absolute;
-//   width: 100%;
-//   height: inherit;
-// }
 .frontPage {
-  /* The image used */
     background-image: url("../assets/main-deco-bg.png");
-
-  /* Full height */
     height: 100%;
     min-height: 100vh;
     display: flex;
