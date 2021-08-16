@@ -18,18 +18,36 @@
           <li :class="{ styleLight: inser }" @click="inSer">
             Infrastructure Services
           </li>
-          <li :class="{ styleLight: cybersec }" @click="cyberSec">Cybersecurity Services</li>
+          <li :class="{ styleLight: cybersec }" @click="cyberSec">
+            Cybersecurity Services
+          </li>
         </ul>
       </div>
       <div class="offer-details">
-        <SoftwareDevelopment v-if="softDevActive" />
-        <TestingQA v-if="testingQA" />
-        <UXUI v-if="uxui" />
-        <ItConsulting v-if="itcon" />
-        <DataAnalytics v-if="dataanal" />
-        <HelpDesk v-if="helpdesk" />
-        <InfrastructureServices v-if="inser"/>
-        <CybersecurityServices v-if="cybersec"/>
+        <transition name="fade">
+          <SoftwareDevelopment v-if="softDevActive" />
+        </transition>
+        <transition name="fade">
+          <TestingQA v-if="testingQA" />
+        </transition>
+        <transition name="fade">
+          <UXUI v-if="uxui" />
+        </transition>
+        <transition name="fade">
+          <ItConsulting v-if="itcon" />
+        </transition>
+        <transition name="fade">
+          <DataAnalytics v-if="dataanal" />
+        </transition>
+        <transition name="fade">
+          <HelpDesk v-if="helpdesk" />
+        </transition>
+        <transition name="fade">
+          <InfrastructureServices v-if="inser" />
+        </transition>
+        <transition name="fade">
+          <CybersecurityServices v-if="cybersec" />
+        </transition>
       </div>
     </q-card-section>
   </q-card>
@@ -54,7 +72,7 @@ export default {
     DataAnalytics,
     HelpDesk,
     InfrastructureServices,
-    CybersecurityServices
+    CybersecurityServices,
   },
   setup() {
     const softDevActive = ref(true);
@@ -67,7 +85,9 @@ export default {
     const cybersec = ref(false);
 
     const softDev = () => {
-      softDevActive.value = true;
+      setTimeout(() => {
+        softDevActive.value = true;
+      }, 600);
       testingQA.value = false;
       uxui.value = false;
       itcon.value = false;
@@ -78,7 +98,9 @@ export default {
     };
 
     const qa = () => {
-      testingQA.value = true;
+      setTimeout(() => {
+        testingQA.value = true;
+      }, 600);
       softDevActive.value = false;
       uxui.value = false;
       itcon.value = false;
@@ -86,11 +108,12 @@ export default {
       helpdesk.value = false;
       inser.value = false;
       cybersec.value = false;
-
     };
 
     const uxUi = () => {
-      uxui.value = true;
+      setTimeout(() => {
+        uxui.value = true;
+      }, 600);
       testingQA.value = false;
       softDevActive.value = false;
       itcon.value = false;
@@ -98,11 +121,12 @@ export default {
       helpdesk.value = false;
       inser.value = false;
       cybersec.value = false;
-
     };
 
     const itCon = () => {
-      itcon.value = true;
+      setTimeout(() => {
+        itcon.value = true;
+      }, 600);
       uxui.value = false;
       testingQA.value = false;
       softDevActive.value = false;
@@ -110,12 +134,12 @@ export default {
       helpdesk.value = false;
       inser.value = false;
       cybersec.value = false;
-
-
     };
 
     const dataAnal = () => {
-      dataanal.value = true;
+      setTimeout(() => {
+        dataanal.value = true;
+      }, 600);
       itcon.value = false;
       uxui.value = false;
       testingQA.value = false;
@@ -123,12 +147,12 @@ export default {
       helpdesk.value = false;
       inser.value = false;
       cybersec.value = false;
-
-
     };
 
     const helpDesk = () => {
-      helpdesk.value = true;
+      setTimeout(() => {
+        helpdesk.value = true;
+      }, 600);
       dataanal.value = false;
       itcon.value = false;
       uxui.value = false;
@@ -136,11 +160,13 @@ export default {
       softDevActive.value = false;
       inser.value = false;
       cybersec.value = false;
-
     };
 
     const inSer = () => {
-      inser.value = true;
+      setTimeout(() => {
+        inser.value = true;
+      }, 600);
+
       helpdesk.value = false;
       dataanal.value = false;
       itcon.value = false;
@@ -151,7 +177,9 @@ export default {
     };
 
     const cyberSec = () => {
-      cybersec.value = true;
+      setTimeout(() => {
+        cybersec.value = true;
+      }, 600);
       inser.value = false;
       helpdesk.value = false;
       dataanal.value = false;
@@ -177,7 +205,7 @@ export default {
       inser,
       inSer,
       cybersec,
-      cyberSec
+      cyberSec,
     };
   },
 };
@@ -237,5 +265,15 @@ export default {
 }
 .styleLight {
   background: rgba(26, 255, 102, 0.678);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
