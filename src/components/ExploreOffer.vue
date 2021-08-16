@@ -1,4 +1,8 @@
 <template>
+
+  <h1 style="text-align: center; font-size: 24px; margin-top: 200px;">EXPLORE OUR OFFERING</h1>
+  <div style="margin: auto;" class="dash"></div>
+
   <q-card class="card">
     <q-card-section class="exploare-offer">
       <div class="offer-menu">
@@ -214,7 +218,7 @@ export default {
 <style lang="scss" scoped>
 .card {
   margin: auto;
-  margin-top: 170px;
+  margin-top: 100px;
   max-width: 1150px;
 }
 .exploare-offer {
@@ -275,5 +279,10 @@ export default {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+.dash {
+  border: 3px solid orange;
+  width: 100px;
+  margin-bottom: 10px;
 }
 </style>

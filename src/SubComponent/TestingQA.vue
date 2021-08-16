@@ -1,7 +1,7 @@
 <template>
   <div class="software-dev">
     <div class="title">
-      <h1>Software DeveTesting & QA</h1>
+      <h1>Testing & QA</h1>
       <div class="dash"></div>
       <p>
         We offer full-range QA and testing outsourcing services, can help to
