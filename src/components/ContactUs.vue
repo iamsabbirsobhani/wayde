@@ -23,28 +23,28 @@
 </template>
 
 <script>
-import {ref, onMounted} from 'vue'
+import { ref, onMounted } from "vue";
 export default {
-    setup() {
-        const windWidth = ref(null)
-        const lottieStyle = ref(null)
-        onMounted(() => {
-            windWidth.value = window.innerWidth;
-            if(windWidth.value > 600) {
-                lottieStyle.value = {
-                    width: 400,
-                    height: 400
-                }
-            } else if (600 > windWidth.value ) {
-                lottieStyle.value = {
-                    width: 300,
-                    height: 300
-                }
-            }
-        })
+  setup() {
+    const windWidth = ref(null);
+    const lottieStyle = ref(null);
+    onMounted(() => {
+      windWidth.value = window.innerWidth;
+      if (windWidth.value > 600) {
+        lottieStyle.value = {
+          width: 400,
+          height: 400,
+        };
+      } else if (600 > windWidth.value) {
+        lottieStyle.value = {
+          width: 300,
+          height: 300,
+        };
+      }
+    });
 
-        return {lottieStyle}
-    }
+    return { lottieStyle };
+  },
 };
 </script>
 
@@ -87,13 +87,13 @@ export default {
   }
 }
 @media (max-width: 500px) {
-    .my-card {
-        flex-direction: column;
+  .my-card {
+    flex-direction: column;
   }
-      .parent-card {
-        max-width: 350px;
-        margin: auto;
-        margin-top: 350px;
-      }
+  .parent-card {
+    max-width: 350px;
+    margin: auto;
+    margin-top: 250px;
+  }
 }
 </style>

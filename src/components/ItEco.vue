@@ -38,7 +38,7 @@ export default {};
 }
 
 .parent-card {
-  margin-top: 350px;
+  margin-top: 250px;
 }
 
 .card {
