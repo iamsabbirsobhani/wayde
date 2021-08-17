@@ -3,8 +3,9 @@
     <Navbar />
     <FrontPage />
     <ExploreOffer />
-    <ItEco/>
-    <Footer/>
+    <ItEco />
+    <ContactUs/>
+    <Footer />
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -16,7 +17,8 @@ import Navbar from "../components/Navbar";
 import FrontPage from "../components/FrontPage";
 import ExploreOffer from "../components/ExploreOffer.vue";
 import Footer from "../components/Footer.vue";
-import ItEco from 'src/components/ItEco.vue';
+import ItEco from "src/components/ItEco.vue";
+import ContactUs from 'src/components/ContactUs.vue';
 export default {
   name: "MainLayout",
 
@@ -25,7 +27,8 @@ export default {
     FrontPage,
     ExploreOffer,
     Footer,
-    ItEco
+    ItEco,
+    ContactUs,
   },
 
   setup() {
@@ -34,6 +37,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

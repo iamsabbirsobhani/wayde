@@ -66,6 +66,7 @@ export default {};
   border-top-right-radius: 50px;
   padding: 80px;
   width: 100%;
+  box-shadow: 0 2px 15px 1px rgb(0 0 0 / 10%);
 }
 .right {
   display: flex;
@@ -145,7 +146,6 @@ export default {};
   .right {
     margin-top: 50px;
   }
-
 }
 
 @media (max-width: 500px) {
@@ -168,8 +168,8 @@ export default {};
     margin-top: 50px;
     // margin-left: 30px;
   }
-   .foot-bottom {
-     flex-direction: column;
+  .foot-bottom {
+    flex-direction: column;
   }
 }
 </style>
