@@ -166,7 +166,7 @@ export default {};
   }
   .right {
     margin-top: 50px;
-    margin-left: 30px;
+    // margin-left: 30px;
   }
    .foot-bottom {
      flex-direction: column;
