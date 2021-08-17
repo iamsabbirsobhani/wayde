@@ -3,9 +3,11 @@
     <div class="title">
       <h1>Infrastructure Services</h1>
       <div class="dash"></div>
+      <div class="details">
       <p>
         We apply our 10-year experience to offer a full set of infrastructure services. Being ISO 2700 certified allows us to guarantee that we access our customers' without creating any security risks or vulnerabilities.
       </p>
+      </div>
     </div>
     <div class="features">
       <ul>
@@ -67,5 +69,34 @@ li::before {
     border: 3px solid orange;
     width: 100px;
     margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .software-dev{
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .software-dev {
+    margin-left: 10px;
+    max-width: 250px;
+  }
+  .title {
+    h1 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 15px;
+      color: #3b3c3d;
+    }
+    .details {
+      max-width: 240px;
+    }
+  }
+  .features {
+    max-width: 250px;
+    flex-direction: column;
+  }
 }
 </style>

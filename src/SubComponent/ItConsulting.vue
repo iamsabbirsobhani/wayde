@@ -3,9 +3,14 @@
     <div class="title">
       <h1>IT Consulting</h1>
       <div class="dash"></div>
-      <p>
-        Our experts can help to develop and implement an effective IT strategy, assist in smooth digital transformation and system integration as well as advise on improvements to your digital customer experience.
-      </p>
+      <div class="details">
+        <p>
+          Our experts can help to develop and implement an effective IT
+          strategy, assist in smooth digital transformation and system
+          integration as well as advise on improvements to your digital customer
+          experience.
+        </p>
+      </div>
     </div>
     <div class="features">
       <ul>
@@ -28,8 +33,8 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-.features{
-    display: flex;
+.features {
+  display: flex;
 }
 .software-dev {
   width: 400px;
@@ -46,15 +51,15 @@ export default {};
   }
 }
 li {
-    list-style-type: none;
-    margin: 15px;
-    font-size: 16px;
-    color: #333;
+  list-style-type: none;
+  margin: 15px;
+  font-size: 16px;
+  color: #333;
 }
 
 li {
   padding-left: 1em;
-  text-indent: -.7em;
+  text-indent: -0.7em;
 }
 
 li::before {
@@ -65,8 +70,37 @@ li::before {
 }
 
 .dash {
-    border: 3px solid orange;
-    width: 100px;
-    margin-bottom: 10px;
+  border: 3px solid orange;
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .software-dev {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .software-dev {
+    margin-left: 10px;
+    max-width: 250px;
+  }
+  .title {
+    h1 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 15px;
+      color: #3b3c3d;
+    }
+    .details {
+      max-width: 240px;
+    }
+  }
+  .features {
+    max-width: 250px;
+    flex-direction: column;
+  }
 }
 </style>

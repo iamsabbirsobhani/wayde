@@ -99,21 +99,21 @@ export default {};
   }
   .front-btn {
     display: flex;
-    justify-content: space-evenly;
-    width: 10px;
+    justify-content: center;
+    // width: 10px;
     margin: auto;
     margin-top: 20px;
   }
   .btn {
-    margin: auto;
-    margin-left: 20px;
+    // margin: auto;
+    // margin-left: 20px;
     transition: all 0.2s;
   }
   .btn:hover {
     background-color: #399cc2 !important;
   }
   .btn2 {
-    margin: auto;
+    // margin: auto;
     margin-left: 20px;
     width: 200px !important;
     background: white !important;
@@ -141,6 +141,7 @@ export default {};
   background-image: url("../assets/main-deco-bg.png");
   /* background: url(../images/hero-bg2.png); */
   background: #f0f0f9;
+  // background: #fff;
   background-size: cover;
   position: relative;
   overflow: hidden;
@@ -213,6 +214,61 @@ export default {};
   }
   100% {
     -webkit-transform: translate(-5%, -25%) scale(1, 1);
+  }
+}
+
+@media (max-width: 768px) {
+  .front-template {
+    top: 30px;
+    h1 {
+      font-size: 30px;
+    }
+    p {
+      color: #394047;
+      font-size: 18px;
+    }
+  }
+  .front-btn {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .btn {
+      margin-left: unset;
+      margin-bottom: 20px;
+      width: 300px;
+    }
+    .btn2 {
+      width: 300px !important;
+      // margin: unset;
+      margin-left: unset;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .front-template {
+    top: 20px;
+    h1 {
+      font-size: 30px;
+    }
+    p {
+      color: #394047;
+      font-size: 18px;
+    }
+  }
+  .front-btn {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .btn {
+      margin-left: unset;
+      margin-bottom: 20px;
+      width: 300px;
+    }
+    .btn2 {
+      width: 300px !important;
+      // margin: unset;
+      margin-left: unset;
+    }
   }
 }
 </style>

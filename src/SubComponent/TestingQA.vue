@@ -3,12 +3,14 @@
     <div class="title">
       <h1>Testing & QA</h1>
       <div class="dash"></div>
-      <p>
-        We offer full-range QA and testing outsourcing services, can help to
-        develop your QA or enhance the existing one, assist you in TCoE setup
-        and evolution. We perform end-to-end testing of mobile, web and desktop
-        application at each stage of the development lifecycle.
-      </p>
+      <div class="details">
+        <p>
+          We offer full-range QA and testing outsourcing services, can help to
+          develop your QA or enhance the existing one, assist you in TCoE setup
+          and evolution. We perform end-to-end testing of mobile, web and
+          desktop application at each stage of the development lifecycle.
+        </p>
+      </div>
     </div>
     <div class="features">
       <ul>
@@ -72,5 +74,33 @@ li::before {
   border: 3px solid orange;
   width: 100px;
   margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+  .software-dev {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .software-dev {
+    margin-left: 10px;
+    max-width: 250px;
+  }
+  .title {
+    h1 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 15px;
+      color: #3b3c3d;
+    }
+    .details {
+      max-width: 240px;
+    }
+  }
+  .features {
+    max-width: 250px;
+    flex-direction: column;
+  }
 }
 </style>

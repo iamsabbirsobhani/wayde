@@ -7,8 +7,21 @@
         updates on our launch.
       </p>
       <form @submit.prevent="">
-        <q-input class="inp" outlined label="Enter your email" type="email" required />
-        <q-btn class="btn" type="submit" size="16px" no-wrap color="black" label="Get updates" />
+        <q-input
+          class="inp"
+          outlined
+          label="Enter your email"
+          type="email"
+          required
+        />
+        <q-btn
+          class="btn"
+          type="submit"
+          size="16px"
+          no-wrap
+          color="black"
+          label="Get updates"
+        />
       </form>
     </div>
     <div class="right">
@@ -40,9 +53,7 @@
 </template>
 
 <script>
-export default {
-
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>
@@ -60,21 +71,21 @@ export default {
   display: flex;
   max-width: 500px;
   h3 {
-      font-size: 20px;
-      font-weight: 700;
+    font-size: 20px;
+    font-weight: 700;
   }
   p {
-      cursor: pointer;
-      font-weight: 350;
+    cursor: pointer;
+    font-weight: 350;
   }
   .social {
-      margin-right: 20px;
+    margin-right: 20px;
   }
   .lossless {
-      margin-right: 20px;
+    margin-right: 20px;
   }
   .getin {
-      margin-right: 40px;
+    margin-right: 40px;
   }
 }
 .left {
@@ -83,21 +94,21 @@ export default {
     max-width: 180px;
   }
   form {
-      display: flex;
+    display: flex;
   }
   p {
     font-size: 18px;
     color: #394047;
   }
   .btn {
-      width: 150px;
-      margin-left: 20px;
+    width: 150px;
+    margin-left: 20px;
   }
-  .btn:hover{
-      background: #399cc2 !important;
+  .btn:hover {
+    background: #399cc2 !important;
   }
   .inp {
-      width: 250px;
+    width: 250px;
   }
 }
 .foot-bottom {
@@ -111,6 +122,54 @@ export default {
     font-size: 16px;
     color: #394047;
     margin: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+  }
+  form {
+    flex-direction: column;
+  }
+  .left {
+    .btn {
+      width: 500px;
+      margin-left: unset;
+      margin-top: 20px;
+    }
+    .inp {
+      width: 500px;
+    }
+  }
+  .right {
+    margin-top: 50px;
+  }
+
+}
+
+@media (max-width: 500px) {
+  .footer {
+    flex-direction: column;
+  }
+  form {
+    flex-direction: column;
+  }
+  .left {
+    .btn {
+      width: 300px;
+      margin-left: unset;
+    }
+    .inp {
+      width: 300px;
+    }
+  }
+  .right {
+    margin-top: 50px;
+    margin-left: 30px;
+  }
+   .foot-bottom {
+     flex-direction: column;
   }
 }
 </style>

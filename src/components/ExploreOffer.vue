@@ -1,7 +1,8 @@
 <template>
-
-  <h1 style="text-align: center; font-size: 24px; margin-top: 200px;">EXPLORE OUR OFFERING</h1>
-  <div style="margin: auto;" class="dash"></div>
+  <h1 style="text-align: center; font-size: 24px; margin-top: 200px">
+    EXPLORE OUR OFFERING
+  </h1>
+  <div style="margin: auto" class="dash"></div>
 
   <q-card class="card">
     <q-card-section class="exploare-offer">
@@ -55,6 +56,137 @@
       </div>
     </q-card-section>
   </q-card>
+
+  <!-- Accordion -->
+  <div class="q-pa-md accordion">
+    <q-list bordered class="bg-white">
+      <q-expansion-item
+        icon="las la-code"
+        label="Software Development"
+        default-opened
+        expand-separator
+        header-class="text-primary"
+      >
+        <q-card>
+          <q-card-section>
+            <transition name="fade">
+              <SoftwareDevelopment v-if="softDevActive" />
+            </transition>
+          </q-card-section>
+        </q-card>
+      </q-expansion-item>
+
+      <q-separator />
+
+      <q-expansion-item
+        icon="las la-question-circle"
+        label="Testing & QA"
+        header-class="text-teal"
+      >
+        <q-card>
+          <q-card-section>
+            <transition name="fade">
+              <TestingQA />
+            </transition>
+          </q-card-section>
+        </q-card>
+      </q-expansion-item>
+
+      <q-separator />
+
+      <q-expansion-item
+        icon="lab la-figma"
+        label="UX/UI Design"
+        header-class="text-purple"
+      >
+        <q-card>
+          <q-card-section>
+            <transition name="fade">
+              <UXUI />
+            </transition>
+          </q-card-section>
+        </q-card>
+      </q-expansion-item>
+
+      <q-separator />
+
+      <q-expansion-item
+        icon="las la-microchip"
+        label="IT Consulting"
+        header-class="text-teal"
+        expand-icon-class="text-teal"
+      >
+        <q-card class="bg-white">
+          <q-card-section>
+            <transition name="fade">
+              <ItConsulting />
+            </transition>
+          </q-card-section>
+        </q-card>
+      </q-expansion-item>
+
+      <q-expansion-item
+        icon="las la-digital-tachograph"
+        label="Data Analytics"
+        header-class="text-orange"
+        expand-icon-class="text-orange"
+      >
+        <q-card class="bg-white">
+          <q-card-section>
+            <transition name="fade">
+              <DataAnalytics />
+            </transition>
+          </q-card-section>
+        </q-card>
+      </q-expansion-item>
+
+      <q-expansion-item
+        icon="las la-hands-helping"
+        label="Help Desk Services"
+        expand-separator
+        header-class="text-primary"
+      >
+        <q-card class="bg-white">
+          <q-card-section>
+            <transition name="fade">
+              <HelpDesk />
+            </transition>
+          </q-card-section>
+        </q-card>
+      </q-expansion-item>
+
+      <q-expansion-item
+        icon="lab la-servicestack"
+        label="Infrastructure Services"
+        expand-separator
+        header-class="text-red"
+      >
+        <q-card class="bg-white">
+          <q-card-section>
+            <transition name="fade">
+              <InfrastructureServices />
+            </transition>
+          </q-card-section>
+        </q-card>
+      </q-expansion-item>
+
+      <q-expansion-item
+        icon="las la-shield-alt"
+        label="Cybersecurity Services"
+        expand-separator
+        header-class="text-primary"
+      >
+        <q-card class="bg-white">
+          <q-card-section>
+            <transition name="fade">
+              <CybersecurityServices />
+            </transition>
+          </q-card-section>
+        </q-card>
+      </q-expansion-item>
+    </q-list>
+  </div>
+  <!-- Accordion -->
 </template>
 
 <script>
@@ -284,5 +416,32 @@ export default {
   border: 3px solid orange;
   width: 100px;
   margin-bottom: 10px;
+}
+.accordion {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .card {
+    display: none;
+  }
+  .accordion {
+    margin: auto;
+    margin-top: 100px;
+    display: block;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 500px) {
+  .card {
+    display: none;
+  }
+  .accordion {
+    margin: auto;
+    margin-top: 50px;
+    display: block;
+    max-width: 350px;
+  }
 }
 </style>
