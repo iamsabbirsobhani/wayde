@@ -3,6 +3,7 @@
     <Navbar />
     <FrontPage />
     <ExploreOffer />
+    <ItEco/>
     <Footer/>
     <q-page-container>
       <router-view />
@@ -15,6 +16,7 @@ import Navbar from "../components/Navbar";
 import FrontPage from "../components/FrontPage";
 import ExploreOffer from "../components/ExploreOffer.vue";
 import Footer from "../components/Footer.vue";
+import ItEco from 'src/components/ItEco.vue';
 export default {
   name: "MainLayout",
 
@@ -22,7 +24,8 @@ export default {
     Navbar,
     FrontPage,
     ExploreOffer,
-    Footer
+    Footer,
+    ItEco
   },
 
   setup() {
