@@ -82,6 +82,7 @@
         icon="las la-question-circle"
         label="Testing & QA"
         header-class="text-teal"
+        default-opened
       >
         <q-card>
           <q-card-section>
@@ -98,6 +99,7 @@
         icon="lab la-figma"
         label="UX/UI Design"
         header-class="text-purple"
+        default-opened
       >
         <q-card>
           <q-card-section>
@@ -115,6 +117,7 @@
         label="IT Consulting"
         header-class="text-teal"
         expand-icon-class="text-teal"
+        default-opened
       >
         <q-card class="bg-white">
           <q-card-section>
@@ -130,6 +133,7 @@
         label="Data Analytics"
         header-class="text-orange"
         expand-icon-class="text-orange"
+        default-opened
       >
         <q-card class="bg-white">
           <q-card-section>
@@ -145,6 +149,7 @@
         label="Help Desk Services"
         expand-separator
         header-class="text-primary"
+        default-opened
       >
         <q-card class="bg-white">
           <q-card-section>
