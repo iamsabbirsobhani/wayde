@@ -25,7 +25,7 @@
     </div>
 
     <div class="timeline">
-        <TimelineBlockchains/>
+      <TimelineBlockchains />
     </div>
 
     <!-- BLOCKCHAIN SOLUTIONS WE DELIVER -->
@@ -167,17 +167,17 @@
         <q-card-section class="bdp-card-flex">
           <img src="../assets/our-principles_guaranteed-roi.svg" alt="" />
           <div class="bdc-subtitle">
-            <h3>TECHNOLOGIES WE RELY ON IN BLOCKCHAIN SOFTWARE DEVELOPMENT</h3>
+            <h3>Guaranteed ROI</h3>
             <div class="dash"></div>
             <div>
               <p>
-                We devise a strategy to prevent governance, process, and
-                technology risks in compliance with
-                <strong>GDPR, HIPAA, PSI/DSS, AML, ISO 27001/27002,</strong>
-                and other security standards. We also enforce policies to
-                confirm transaction validity, implement authorization controls
-                for APIs, set up privileged access management, and implement
-                other security-boosting strategies.
+                We help you achieve <strong> ROI </strong>for blockchain-based software in <strong> 12-18
+                months.</strong> Despite the technology being capital-intensive, it
+                allows non-IT enterprises to create more profitable business
+                models and lower the costs of transactions, business operations,
+                and compliance. And SaaS companies can benefit by attracting new
+                customers with highly secure products that guarantee transaction
+                transparency.
               </p>
             </div>
           </div>
@@ -211,7 +211,7 @@
 import { ref, onMounted } from "vue";
 import TabPanelBlockchain from "../SubComponent/TabPanelBlockchain.vue";
 import TabPanel from "src/SubComponent/TabPanel.vue";
-import TimelineBlockchains from './TimelineBlockchains.vue';
+import TimelineBlockchains from "./TimelineBlockchains.vue";
 export default {
   components: { TabPanelBlockchain, TabPanel, TimelineBlockchains },
   setup() {
