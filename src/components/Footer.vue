@@ -39,7 +39,7 @@
       </div>
       <div class="getin">
         <h3>Get in Touch</h3>
-        <p>hello@wayde.com</p>
+        <p>contact@wayde.in</p>
       </div>
     </div>
   </div>
@@ -121,7 +121,7 @@ export default {};
     text-align: center;
     cursor: pointer;
     font-size: 16px;
-    color: #394047;
+    color: #8a8a8a;
     margin: 5px;
   }
 }

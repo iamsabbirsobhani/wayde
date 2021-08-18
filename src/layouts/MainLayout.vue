@@ -2,8 +2,11 @@
   <q-layout view="lHh Lpr lFf">
     <Navbar />
     <FrontPage />
+    <Clients/>
+    <Blockchain />
     <ExploreOffer />
     <ItEco />
+    <SolutionsDeliver/>
     <ContactUs/>
     <Footer />
     <q-page-container>
@@ -19,6 +22,9 @@ import ExploreOffer from "../components/ExploreOffer.vue";
 import Footer from "../components/Footer.vue";
 import ItEco from "src/components/ItEco.vue";
 import ContactUs from 'src/components/ContactUs.vue';
+import Blockchain from 'src/components/Blockchain.vue';
+import Clients from 'src/components/Clients.vue';
+import SolutionsDeliver from 'src/components/SolutionsDeliver.vue';
 export default {
   name: "MainLayout",
 
@@ -29,6 +35,9 @@ export default {
     Footer,
     ItEco,
     ContactUs,
+    Blockchain,
+    Clients,
+    SolutionsDeliver,
   },
 
   setup() {

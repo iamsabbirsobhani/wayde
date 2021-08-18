@@ -249,7 +249,7 @@ export default {
 
   .mobile-logo {
     img {
-      max-width: 100px;
+      max-width: 150px;
     }
   }
   #cross {
@@ -279,6 +279,7 @@ export default {
   .header-nav-mobile {
     display: block;
     z-index: 20;
+    padding: 10px;
   }
 
   .header-nav-mobile .hamburger {

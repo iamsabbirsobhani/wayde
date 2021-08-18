@@ -111,6 +111,8 @@ export default {};
   }
   .btn:hover {
     background-color: #399cc2 !important;
+    transform: scale(1.05);
+    box-shadow: 0 3px 15px -2px;
   }
   .btn2 {
     // margin: auto;
@@ -119,6 +121,11 @@ export default {};
     background: white !important;
     border: 2px solid black !important;
     color: black !important;
+    transition: all 0.24s;
+  }
+  .btn2:hover{
+        transform: scale(1.05);
+    box-shadow: 0 3px 15px -2px;
   }
 }
 // .frontPage {
@@ -252,7 +259,8 @@ export default {};
     }
     p {
       color: #394047;
-      font-size: 18px;
+      width: 310px;
+      font-size: 17px;
     }
   }
   .front-btn {

@@ -14,8 +14,8 @@
         </div>
         <div class="q-pa-md contacts" style="max-width: 400px">
           <h3>Our contact details</h3>
-          <p><i class="las la-phone-volume"></i> +12345678910</p>
-          <p><i class="las la-envelope"></i> hello@wayde.com</p>
+          <p><i class="las la-phone-volume"></i> 0123 22123 2323</p>
+          <p><i class="las la-envelope"></i> contact@wayde.in</p>
         </div>
       </q-card-section>
     </q-card>
@@ -52,7 +52,7 @@ export default {
 .parent-card {
   max-width: 1150px;
   margin: auto;
-  margin-top: 350px;
+  margin-top: 200px;
 }
 .my-card {
   display: flex;
