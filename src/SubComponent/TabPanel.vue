@@ -175,7 +175,7 @@ import { ref } from "vue";
 export default {
   setup() {
     return {
-      tabPanel: ref("cloud"),
+      tabPanel: ref("blockchain"),
       splitterModel: ref(20),
     };
   },

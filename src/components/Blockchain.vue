@@ -44,6 +44,9 @@
           <q-card-section>
             <div class="text-h6">{{ item.title }}</div>
           </q-card-section>
+          <q-card-section v-if="verticalPanel">
+              <div v-html="item.lottie"></div>
+          </q-card-section>
           <q-card-section>
             <p>{{ item.details }}</p>
           </q-card-section>
@@ -219,22 +222,27 @@ export default {
       a: {
         title: `Smart contracts`,
         details: `Protocols that guarantee the integrity of multi-party agreements and automatically enforce fixed obligations.`,
+        lottie: `<lottie-player src="https://assets7.lottiefiles.com/packages/lf20_n35norgx.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>`
       },
       b: {
         title: `Blockchain wallets`,
         details: `Digital wallets for storing and manipulating cryptocurrencies (Bitcoin, Litecoin, etc.)`,
+        lottie: `<lottie-player src="https://assets5.lottiefiles.com/packages/lf20_yZpLO2.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>`
       },
       c: {
         title: `Decentralized apps (dApps)`,
         details: `Encrypted peer-to-peer apps with no single point of failure and zero downtime.`,
+        lottie: `<lottie-player src="https://assets4.lottiefiles.com/packages/lf20_lln7m43m.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>`
       },
       d: {
         title: `Decentralized Organizations (DOs and DAOs)`,
         details: `Decision-making platforms that power highly productive and low-stress communities with no central authority.`,
+        lottie: `<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_eijHZ0.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>`
       },
       e: {
         title: `Private blockchains`,
         details: `Secure and scalable permission-based ecosystems with minimized downtime.`,
+        lottie: `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_knixvxzq.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>`
       },
     });
 
@@ -322,6 +330,7 @@ export default {
       }
     });
 
+
     return {
       tab: ref("mails"),
       innerTab: ref("innerMails"),
@@ -368,7 +377,7 @@ export default {
 
 .my-card-bswd {
   width: 250px;
-  height: 300px;
+//   height: 300px;
   margin: 10px;
   transition: all 0.24s;
   p {
