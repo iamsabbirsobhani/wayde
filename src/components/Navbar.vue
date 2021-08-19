@@ -4,15 +4,18 @@
       <img src="../assets/WayedNavIco.png" alt="wayed" />
     </div>
     <div class="left-menu">
-      <!-- Yellow -->
-      <q-btn class="text-light-blue-13 nav-btn-1" flat @click="scroll('twr')" label="Technology" />
-      <!-- <a style="cursor: pointer;" @click="scroll('twr')" class="button blue">Technology</a> -->
 
+      <q-btn class="text-light-blue-13 nav-btn-1" flat @click="scroll('twr')" label="Technology" />
+
+      <!-- glowing button -->
+      <!-- blue -->
+      <!-- <a style="cursor: pointer;" @click="scroll('twr')" class="button blue">Technology</a> -->
       <!-- Yellow -->
       <a style="cursor: pointer;" @click="scroll('offerings')" class="button yellow nav-btn-yellow">Our Offerings</a>
-
       <!-- White -->
       <!-- <a style="cursor: pointer;" @click="scroll('bcd')" class="button white">Blockchain</a> -->
+      <!-- glowing button -->
+
       <q-btn flat @click="scroll('bcd')" class="text-orange-14 nav-btn-2" label="Blockchain" />
       <!-- <q-btn class="btn" color="black" label="Whitepaper" /> -->
     </div>
