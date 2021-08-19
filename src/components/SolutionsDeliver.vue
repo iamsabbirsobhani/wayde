@@ -1,5 +1,5 @@
 <template>
-  <div class="solution">
+  <div id="solutions" class="solution">
     <div class="bdc-subtitle">
       <h3>SOLUTIONS WE DELIVER</h3>
       <div class="dash"></div>

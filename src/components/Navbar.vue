@@ -4,10 +4,17 @@
       <img src="../assets/WayedNavIco.png" alt="wayed" />
     </div>
     <div class="left-menu">
-      <p>Who We Are</p>
-      <p>How It Works</p>
-      <p>Technology</p>
-      <q-btn class="btn" color="black" label="Whitepaper" />
+      <!-- Yellow -->
+      <q-btn class="text-light-blue-13 nav-btn-1" flat @click="scroll('twr')" label="Technology" />
+      <!-- <a style="cursor: pointer;" @click="scroll('twr')" class="button blue">Technology</a> -->
+
+      <!-- Yellow -->
+      <a style="cursor: pointer;" @click="scroll('offerings')" class="button yellow nav-btn-yellow">Our Offerings</a>
+
+      <!-- White -->
+      <!-- <a style="cursor: pointer;" @click="scroll('bcd')" class="button white">Blockchain</a> -->
+      <q-btn flat @click="scroll('bcd')" class="text-orange-14 nav-btn-2" label="Blockchain" />
+      <!-- <q-btn class="btn" color="black" label="Whitepaper" /> -->
     </div>
   </div>
 
@@ -62,10 +69,70 @@
 
     <!-- Overlay content -->
     <div class="overlay-content">
-      <a href="#">Who We Are</a>
-      <a href="#">How It Works</a>
-      <a href="#">Technology</a>
-      <q-btn class="btn" size="23px" color="black" label="Whitepaper" />
+      <q-btn
+        @click="scroll('twr')"
+        style="background: #ff0080; color: white"
+        label="Technology"
+      />
+      <!-- <q-btn
+        class="q-btn"
+
+        outline
+        style="background: #FF0080; color: white"
+        label="Technology"
+      /> -->
+      <!-- style="color: #ff0080" -->
+      <q-btn
+        @click="scroll('offerings')"
+        class="bg-deep-orange button yellow"
+        label="Our Offerings"
+        style="color: white; width: 280px"
+        size="20px"
+      />
+      <q-btn
+        @click="scroll('bcd')"
+        class="bg-lime-14 q-btn"
+        style="color: white"
+        label="Blockchain"
+      />
+      <q-btn
+        @click="scroll('bcc')"
+        class="bg-indigo-10"
+        style="color: white"
+        label="Blockchain cycle"
+      />
+      <q-btn
+        @click="scroll('bswd')"
+        class="bg-light-blue-5 button blue"
+        style="color: white; width: 280px"
+        size="20px"
+        label="Solutions"
+      />
+      <q-btn
+        @click="scroll('bucws')"
+        class="bg-green"
+        style="color: white"
+        label="Cases We Support"
+      />
+      <q-btn
+        @click="scroll('bdps')"
+        class="bg-red-13"
+        style="color: white"
+        label="Our Principles"
+      />
+      <q-btn
+        @click="scroll('solutions')"
+        class="bg-purple button white"
+        label="Solution We Deliver"
+        style="color: white; width: 280px"
+        size="20px"
+      />
+      <q-btn
+        @click="scroll('contactUs')"
+        class="bg-pink-9"
+        style="color: white"
+        label="Contact Us"
+      />
     </div>
   </div>
 </template>
@@ -116,14 +183,33 @@ export default {
       }
     };
 
+    //scroll to our offerings
+    const scroll = (id) => {
+      isTrue.value = false;
+      navStyle.value = {
+        height: `0%`,
+      };
+      document.getElementById(id).scrollIntoView({
+        behavior: "smooth",
+      });
+    };
+
     return {
       scrollStyle,
       scrl,
       isTrue,
       addNavCls,
       navStyle,
+      scroll,
     };
   },
+  // methods: {
+  //   scroll(id) {
+  //     document.getElementById(id).scrollIntoView({
+  //       behavior: "smooth",
+  //     });
+  //   },
+  // },
 };
 </script>
 
@@ -179,20 +265,24 @@ export default {
   height: 0%;
   width: 100%;
   position: fixed; /* Stay in place */
-  z-index: 15; /* Sit on top */
+  z-index: 35; /* Sit on top */
   left: 0;
   top: 0;
   // background-color: rgb(248, 248, 248); /* Black fallback color */
   // background-color: rgba(255, 255, 255, 0.979); /* Black w/opacity */
-  background: #f0f0f9;
+  // background: #f0f0f9;
+  background: white;
   overflow-x: hidden; /* Disable horizontal scroll */
   transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
 
 /* Position the content inside the overlay */
 .overlay-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   position: relative;
-  top: 25%; /* 25% from the top */
+  top: 10%; /* 25% from the top */
   width: 100%; /* 100% width */
   text-align: center; /* Centered text/links */
   margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
@@ -226,7 +316,196 @@ export default {
   display: none;
 }
 
+
+
+
+// glowing button
+
+/* Blue Shadow */
+@-moz-keyframes blue {
+  0%, 100% {
+    -moz-box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+
+  50% {
+    -moz-box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0), inset 0px 0px 0px rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+
+@-webkit-keyframes blue {
+  0%, 100% {
+    -webkit-box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+
+  50% {
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0), inset 0px 0px 0px rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+
+@-o-keyframes blue {
+  0%, 100% {
+    box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+
+  50% {
+    box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+
+@keyframes blue {
+  0%, 100% {
+    box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+
+  50% {
+    box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+
+/* Yellow Shadow */
+@-moz-keyframes yellow {
+  0%, 100% {
+    -moz-box-shadow: 1px 0px 19px 4px #fff503, inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 0px 19px 4px #fff503, inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+
+  50% {
+    -moz-box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0), inset 0px 0px 0px rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+
+@-webkit-keyframes yellow {
+  0%, 100% {
+    -webkit-box-shadow: 1px 0px 19px 4px #fff503, inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 0px 19px 4px #fff503, inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+
+  50% {
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0), inset 0px 0px 0px rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+
+@-o-keyframes yellow {
+  0%, 100% {
+    box-shadow: 1px 0px 19px 4px #fff503, inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+
+  50% {
+    box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+
+@keyframes yellow {
+  0%, 100% {
+    box-shadow: 1px 0px 19px 4px #fff503, inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+
+  50% {
+    box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+
+/* White Shadow */
+@-moz-keyframes white {
+  0%, 100% {
+    -moz-box-shadow: 1px 0px 19px 4px rgba(255, 255, 255, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 0px 19px 4px rgba(255, 255, 255, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+
+  50% {
+    -moz-box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0), inset 0px 0px 0px rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+
+@-webkit-keyframes white {
+  0%, 100% {
+    -webkit-box-shadow: 1px 0px 19px 4px rgba(255, 255, 255, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 0px 19px 4px rgba(255, 255, 255, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+
+  50% {
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0), inset 0px 0px 0px rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+
+@-o-keyframes white {
+  0%, 100% {
+    box-shadow: 1px 0px 19px 4px rgba(255, 255, 255, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+
+  50% {
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+
+@keyframes white {
+  0%, 100% {
+    box-shadow: 1px 0px 7px 2px rgba(255, 255, 255, 0.7), inset 0px 0px 6px rgba(255, 255, 255, 0.5); }
+
+  50% {
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+
+/* Button */
+.button {
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px 0;
+  border-radius: 10px 0;
+  margin-right: 20px; }
+
+/* Blue Background */
+.blue {
+  text-shadow: 0px 1px 0px #83e0f7;
+  background-image: -webkit-linear-gradient(top, #87e0fd, #53cbf1);
+  background-image: -moz-linear-gradient(top, #87e0fd, #53cbf1);
+  background-image: -o-linear-gradient(top, #87e0fd, #53cbf1);
+  background-image: linear-gradient(to bottom, #87e0fd, #53cbf1);
+  -webkit-animation: blue 2s infinite;
+  -moz-animation: blue 2s infinite;
+  -o-animation: blue 2s infinite;
+  animation: blue 2s infinite; }
+
+/* Yellow Background */
+.yellow {
+  text-shadow: 0px 1px 0px #faffc7;
+  background-image: -webkit-linear-gradient(top, #fff966, #f3fd80);
+  background-image: -moz-linear-gradient(top, #fff966, #f3fd80);
+  background-image: -o-linear-gradient(top, #fff966, #f3fd80);
+  background-image: linear-gradient(to bottom, #fff966, #f3fd80);
+  -webkit-animation: yellow 2s infinite;
+  -moz-animation: yellow 2s infinite;
+  -o-animation: yellow 2s infinite;
+  animation: yellow 2s infinite; }
+
+/* White Background */
+.white {
+  text-shadow: 0px 1px 0px #fff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #cccccc);
+  background-image: -moz-linear-gradient(top, #ffffff, #cccccc);
+  background-image: -o-linear-gradient(top, #ffffff, #cccccc);
+  background-image: linear-gradient(to bottom, #ffffff, #cccccc);
+  -webkit-animation: white 2s infinite;
+  -moz-animation: white 2s infinite;
+  -o-animation: white 2s infinite;
+  animation: white 2s infinite; }
+
+// glowing button
+
+
+.nav-btn-1 {
+  margin-right: 10px;
+  transition: all .24s;
+}
+
+.nav-btn-1:hover {
+  transform: scale(1.07);
+  box-shadow: 1px 1px 1px 2px #83e0f7;
+}
+.nav-btn-2 {
+  margin-left: 10px;
+  transition: all 0.24s;
+}
+
+.nav-btn-2:hover {
+  transform: scale(1.07);
+  box-shadow: 1px 1px 1px 2px #ffa53e;
+}
+.nav-btn-yellow {
+  margin-left: 10px;
+  transition: all 0.24s;
+}
+.nav-btn-yellow:hover {
+  transform: scale(1.07);
+  box-shadow: 1px 1px 1px 2px #e8ff66;
+}
+
+
 @media (max-width: 768px) {
+  .q-btn {
+    width: 250px;
+    height: 50px;
+    margin: 5px;
+    align-self: center;
+  }
   .navbar {
     display: none;
   }
@@ -237,7 +516,7 @@ export default {
     padding: 20px;
     position: fixed;
     top: 0;
-    z-index: 20;
+    z-index: 40;
     background: transparent;
     justify-content: space-between;
     align-items: center;

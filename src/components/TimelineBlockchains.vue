@@ -1,5 +1,5 @@
 <template>
-  <div class="timeline">
+  <div id="bcc" class="timeline">
     <div class="q-px-lg q-pb-md">
       <q-timeline color="secondary">
         <q-timeline-entry heading> Blockchain cycle </q-timeline-entry>

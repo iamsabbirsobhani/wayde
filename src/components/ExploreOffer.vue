@@ -1,10 +1,10 @@
 <template>
-  <h1 style="text-align: center; font-size: 24px; margin-top: 200px">
+  <h1 id="offerings" style="text-align: center; font-size: 24px; margin-top: 200px">
     EXPLORE OUR OFFERING
   </h1>
   <div style="margin: auto" class="dash"></div>
 
-  <q-card class="card">
+  <q-card  class="card offf">
     <q-card-section class="exploare-offer">
       <div class="offer-menu">
         <ul class="list">

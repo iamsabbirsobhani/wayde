@@ -1,5 +1,5 @@
 <template>
-  <div class="blockchain">
+  <div id="bcd" class="blockchain">
     <div class="blockchain-dev-ser">
       <div class="bdc-title">
         <h3>Blockchain Development Services</h3>
@@ -29,7 +29,7 @@
     </div>
 
     <!-- BLOCKCHAIN SOLUTIONS WE DELIVER -->
-    <div class="bswd">
+    <div id="bswd" class="bswd">
       <div class="bdc-subtitle">
         <h3>BLOCKCHAIN SOLUTIONS WE DELIVER</h3>
         <div class="dash"></div>
@@ -56,7 +56,7 @@
     <!-- BLOCKCHAIN SOLUTIONS WE DELIVER -->
 
     <!-- BLOCKCHAIN USE CASES WE SUPPORT -->
-    <div class="bucws">
+    <div class="bucws" id="bucws">
       <div class="bdc-subtitle">
         <h3>BLOCKCHAIN USE CASES WE SUPPORT</h3>
         <div class="dash"></div>
@@ -110,7 +110,7 @@
     <!-- CHOOSE YOUR SERVICE OPTION -->
 
     <!-- CHOOSE YOUR SERVICE OPTION -->
-    <div class="twr">
+    <div id="twr" class="twr">
       <div class="bdc-subtitle">
         <h3>TECHNOLOGIES WE RELY ON IN BLOCKCHAIN SOFTWARE DEVELOPMENT</h3>
         <div class="dash"></div>
@@ -131,7 +131,7 @@
     <!-- CHOOSE YOUR SERVICE OPTION -->
 
     <!-- BLOCKCHAIN DEVELOPMENT PRINCIPLES WE STICK TO -->
-    <div class="bdp-card">
+    <div id="bdps" class="bdp-card">
       <div class="bdc-subtitle">
         <h3>BLOCKCHAIN DEVELOPMENT PRINCIPLES WE STICK TO</h3>
         <div class="dash"></div>

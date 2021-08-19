@@ -1,5 +1,5 @@
 <template>
-  <div class="parent-card">
+  <div id="contactUs" class="parent-card">
     <q-card class="card">
       <q-card-section class="my-card">
         <div class="lottie">

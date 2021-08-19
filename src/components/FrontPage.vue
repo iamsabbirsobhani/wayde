@@ -28,14 +28,79 @@
         />
       </div>
     </div>
+    <q-page-sticky
+      :style="totopStyle"
+      position="bottom-right"
+      :offset="[18, 18]"
+    >
+      <transition name="fade">
+        <q-btn
+          @click="scrollTop"
+          glossy
+          fab
+          icon="keyboard_arrow_up"
+          color="lime-13"
+          v-if="isFade"
+        />
+      </transition>
+    </q-page-sticky>
   </div>
 </template>
 
 <script>
-export default {};
+import { onMounted, ref } from "vue";
+export default {
+  setup() {
+    const scrl = ref(null);
+    const totopStyle = ref({
+      display: "none",
+      zIndex: 30,
+    });
+
+    const isFade = ref(false)
+
+    let sss = () => {
+      scrl.value = window.scrollY;
+      if (window.scrollY > 1500) {
+        totopStyle.value = {
+          display: "block",
+          zIndex: 30,
+        };
+        isFade.value = true;
+      } else {
+        totopStyle.value = {
+          display: "none",
+          zIndex: 30,
+        };
+        isFade.value = false;
+      }
+    };
+
+    var scrollTop = function () {
+      window.scrollTo({ top: 0, behavior: `smooth` });
+    };
+
+    onMounted(() => {
+      window.addEventListener("scroll", sss);
+    });
+    return { scrollTop, totopStyle, isFade };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
+// totop transition
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s ease;
+}
+
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+// totop transition
+
+
+
 .front-template {
   position: relative;
   top: 0;
@@ -123,8 +188,8 @@ export default {};
     color: black !important;
     transition: all 0.24s;
   }
-  .btn2:hover{
-        transform: scale(1.05);
+  .btn2:hover {
+    transform: scale(1.05);
     box-shadow: 0 3px 15px -2px;
   }
 }
