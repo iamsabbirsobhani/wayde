@@ -2,7 +2,7 @@
   <div id="bcd" class="blockchain">
     <div class="blockchain-dev-ser">
       <div class="bdc-title">
-        <h3>Blockchain Development Services</h3>
+        <h3 style="font-size: 20px;">Blockchain Development Services</h3>
         <div class="dash"></div>
       </div>
       <div class="bds-img">
@@ -44,10 +44,13 @@
           :key="item"
         >
           <q-card-section>
-            <div class="text-h6">{{ item.title }}</div>
+            <div class="text-h6" style="color: #1c8eff;">{{ item.title }}</div>
           </q-card-section>
           <q-card-section v-if="verticalPanel">
             <div v-html="item.lottie"></div>
+          </q-card-section>
+          <q-card-section v-else class="mobile-lottie">
+            <div class="mobile-lottie-inner" v-html="item.lottie"></div>
           </q-card-section>
           <q-card-section>
             <p>{{ item.details }}</p>
@@ -71,7 +74,7 @@
           :key="it"
         >
           <q-card-section>
-            <div class="text-h6">{{ it.title }}</div>
+            <div class="text-h6" style="color: #1c8eff;">{{ it.title }}</div>
           </q-card-section>
           <q-card-section>
             <img :src="require(`assets/bucws/${it.src}.svg`)" alt="" />
@@ -85,7 +88,7 @@
     <!-- BLOCKCHAIN USE CASES WE SUPPORT -->
 
     <!-- CHOOSE YOUR SERVICE OPTION -->
-    <div class="cyso">
+    <div id="cyso" class="cyso">
       <div class="bdc-subtitle">
         <h3>CHOOSE YOUR SERVICE OPTION</h3>
         <div class="dash"></div>
@@ -99,7 +102,7 @@
           :key="item"
         >
           <q-card-section>
-            <div class="text-h6">{{ item.title }}</div>
+            <div class="text-h6" style="color: #1c8eff;">{{ item.title }}</div>
           </q-card-section>
           <q-card-section>
             <ul v-for="list in item.lists" :key="list">
@@ -151,7 +154,8 @@
             ></lottie-player>
           </div>
           <div class="bdc-subtitle">
-            <h3>TECHNOLOGIES WE RELY ON IN BLOCKCHAIN SOFTWARE DEVELOPMENT</h3>
+
+            <h3 style="color: #1c8eff;">TECHNOLOGIES WE RELY ON IN BLOCKCHAIN SOFTWARE DEVELOPMENT</h3>
             <div class="dash"></div>
             <div>
               <p>
@@ -172,7 +176,7 @@
         <q-card-section class="bdp-card-flex">
           <img src="../assets/our-principles_guaranteed-roi.svg" alt="" />
           <div class="bdc-subtitle">
-            <h3>Guaranteed ROI</h3>
+            <h3 style="color: #1c8eff;">Guaranteed ROI</h3>
             <div class="dash"></div>
             <div>
               <p>
@@ -220,6 +224,7 @@ import TimelineBlockchains from "./TimelineBlockchains.vue";
 export default {
   components: { TabPanelBlockchain, TabPanel, TimelineBlockchains },
   setup() {
+
     const bswd = ref({
       a: {
         title: `Smart contracts`,
@@ -436,7 +441,7 @@ export default {
 .my-card-bucws {
   width: 300px;
   margin: 10px;
-  border-top: 10px solid #005eb8;
+  border-left: 10px solid #68b800;
   transition: all 0.24s;
 }
 
@@ -459,7 +464,7 @@ export default {
 .my-card-cyso {
   width: 300px;
   margin: 10px;
-  border-top: 10px solid #005eb8;
+  border-top: 10px solid #68b800;
   ul {
     list-style: none;
   }
@@ -504,7 +509,7 @@ export default {
 .my-card-twr {
   //   width: 300px;
   margin: 10px;
-  border-top: 10px solid #005eb8;
+  border-top: 10px solid #68b800;
 }
 
 .bdp-card {
@@ -518,7 +523,7 @@ export default {
   }
   p {
     margin-left: 10px;
-    color: #3b3c3d;
+    // color: #3b3c3d;
     line-height: 1.78;
     letter-spacing: normal;
     widows: 2;
@@ -605,6 +610,13 @@ export default {
   img {
     max-width: 300px;
   }
+}
+.mobile-lottie{
+  display: flex;
+  justify-content: center;
+}
+.mobile-lottie-inner{
+
 }
 }
 </style>

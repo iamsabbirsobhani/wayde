@@ -5,9 +5,12 @@
         <q-timeline-entry heading><h4>Blockchain cycle</h4></q-timeline-entry>
 
         <q-timeline-entry
+          @click="scroll(`bswd`)"
           title="Solutions We Develop"
           subtitle="Wayde"
           icon="lab la-servicestack"
+          style="cursor: pointer;"
+          color="lime-4"
         >
           <ul>
             <li>Smart contracts</li>
@@ -22,6 +25,9 @@
           title="Use Cases We Support"
           subtitle="Wayde"
           icon="las la-american-sign-language-interpreting"
+          @click="scroll(`bucws`)"
+          style="cursor: pointer"
+          color="lime-5"
         >
           <div>
             <ul>
@@ -41,6 +47,9 @@
           title="Our Service Options"
           subtitle="Wayde"
           icon="las la-braille"
+          @click="scroll(`cyso`)"
+          style="cursor: pointer"
+          color="lime-6"
         >
           <div>
             <ul>
@@ -54,6 +63,9 @@
           title="Blockchain Tech We Use"
           subtitle="Wayde"
           icon="las la-microchip"
+          @click="scroll(`twr`)"
+          style="cursor: pointer"
+          color="lime-7"
         >
           <div>
             <ul>
@@ -67,6 +79,9 @@
           title="Principles We Stick To"
           subtitle="Wayde"
           icon="lab la-wolf-pack-battalion"
+          @click="scroll(`bdps`)"
+          style="cursor: pointer"
+          color="lime-8"
         >
           <div>
             <ul>
@@ -80,6 +95,20 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<script lang="ts">
+import { defineComponent } from "vue";
 
-</style>
+export default defineComponent({
+  setup() {
+    const scroll = (id) => {
+      document.getElementById(id).scrollIntoView({
+        behavior: "smooth",
+      });
+    };
+
+    return { scroll };
+  },
+});
+</script>
+
+<style lang="scss" scoped></style>

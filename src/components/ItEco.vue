@@ -19,7 +19,7 @@
           </ul>
         </div>
         <div class="right-it">
-          <img src="../assets/iteco.webp" alt="" />
+          <img src="../assets/ExchangeDev.png" alt="" />
         </div>
       </q-card-section>
     </q-card>
@@ -66,11 +66,11 @@ export default {};
 .right-it {
   img {
     position: relative;
-    top: -100px;
-    right: -100px;
-    background: white;
+    // top: -120px;
+    // right: -120px;
+    // background: white;
     width: 500px;
-    box-shadow: 0 2px 15px 0 rgb(0 0 0 / 10%);
+    // box-shadow: 0 2px 15px 0 rgb(0 0 0 / 10%);
   }
 }
 
@@ -132,6 +132,8 @@ li::before {
     justify-content: space-between;
   }
   .right-it {
+    display: flex;
+    justify-content: center;
     margin-top: 50px;
     img {
       width: 250px;
@@ -139,8 +141,8 @@ li::before {
       position: unset;
       top: unset;
       right: unset;
-      background: white;
-      box-shadow: 0 2px 15px 0 rgb(0 0 0 / 10%);
+      background: unset;
+      box-shadow: unset;
     }
   }
   .left-it {

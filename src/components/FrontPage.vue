@@ -157,10 +157,11 @@ export default {
 
   p {
     text-align: center;
-    color: gray;
+    // color: gray;
     max-width: 600px;
     margin: auto;
     font-size: 18px;
+        color: #394047;
   }
   .front-btn {
     display: flex;
