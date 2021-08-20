@@ -9,7 +9,7 @@
       <div class="front-typo">
         <h1>
           SOFTWARE <strong>CONSULTING</strong> AND DEVELOPMENT <br />
-          FOR YOUR DIGITAL SUCCESS
+          FOR YOUR DIGITAL SUCCESS.
         </h1>
         <p>
           Since 1989. For millions of users. We transform businesses with

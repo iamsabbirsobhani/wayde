@@ -2,7 +2,7 @@
   <div id="bcc" class="timeline">
     <div class="q-px-lg q-pb-md">
       <q-timeline color="secondary">
-        <q-timeline-entry heading> Blockchain cycle </q-timeline-entry>
+        <q-timeline-entry heading><h4>Blockchain cycle</h4></q-timeline-entry>
 
         <q-timeline-entry
           title="Solutions We Develop"

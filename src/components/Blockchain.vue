@@ -5,7 +5,9 @@
         <h3>Blockchain Development Services</h3>
         <div class="dash"></div>
       </div>
-      <img src="../assets/blockchain-software-development-cover.svg" alt="" />
+      <div class="bds-img">
+        <img src="../assets/bds-new.webp" alt="" />
+      </div>
       <div class="bdc-intro">
         <p>
           Blockchain development services aim at creating decentralized
@@ -45,7 +47,7 @@
             <div class="text-h6">{{ item.title }}</div>
           </q-card-section>
           <q-card-section v-if="verticalPanel">
-              <div v-html="item.lottie"></div>
+            <div v-html="item.lottie"></div>
           </q-card-section>
           <q-card-section>
             <p>{{ item.details }}</p>
@@ -174,13 +176,13 @@
             <div class="dash"></div>
             <div>
               <p>
-                We help you achieve <strong> ROI </strong>for blockchain-based software in <strong> 12-18
-                months.</strong> Despite the technology being capital-intensive, it
-                allows non-IT enterprises to create more profitable business
-                models and lower the costs of transactions, business operations,
-                and compliance. And SaaS companies can benefit by attracting new
-                customers with highly secure products that guarantee transaction
-                transparency.
+                We help you achieve <strong> ROI </strong>for blockchain-based
+                software in <strong> 12-18 months.</strong> Despite the
+                technology being capital-intensive, it allows non-IT enterprises
+                to create more profitable business models and lower the costs of
+                transactions, business operations, and compliance. And SaaS
+                companies can benefit by attracting new customers with highly
+                secure products that guarantee transaction transparency.
               </p>
             </div>
           </div>
@@ -222,27 +224,27 @@ export default {
       a: {
         title: `Smart contracts`,
         details: `Protocols that guarantee the integrity of multi-party agreements and automatically enforce fixed obligations.`,
-        lottie: `<lottie-player src="https://assets7.lottiefiles.com/packages/lf20_n35norgx.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>`
+        lottie: `<lottie-player src="https://assets7.lottiefiles.com/packages/lf20_n35norgx.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>`,
       },
       b: {
         title: `Blockchain wallets`,
         details: `Digital wallets for storing and manipulating cryptocurrencies (Bitcoin, Litecoin, etc.)`,
-        lottie: `<lottie-player src="https://assets5.lottiefiles.com/packages/lf20_yZpLO2.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>`
+        lottie: `<lottie-player src="https://assets5.lottiefiles.com/packages/lf20_yZpLO2.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>`,
       },
       c: {
         title: `Decentralized apps (dApps)`,
         details: `Encrypted peer-to-peer apps with no single point of failure and zero downtime.`,
-        lottie: `<lottie-player src="https://assets4.lottiefiles.com/packages/lf20_lln7m43m.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>`
+        lottie: `<lottie-player src="https://assets4.lottiefiles.com/packages/lf20_lln7m43m.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>`,
       },
       d: {
         title: `Decentralized Organizations (DOs and DAOs)`,
         details: `Decision-making platforms that power highly productive and low-stress communities with no central authority.`,
-        lottie: `<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_eijHZ0.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>`
+        lottie: `<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_eijHZ0.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>`,
       },
       e: {
         title: `Private blockchains`,
         details: `Secure and scalable permission-based ecosystems with minimized downtime.`,
-        lottie: `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_knixvxzq.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>`
+        lottie: `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_knixvxzq.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>`,
       },
     });
 
@@ -330,7 +332,6 @@ export default {
       }
     });
 
-
     return {
       tab: ref("mails"),
       innerTab: ref("innerMails"),
@@ -351,8 +352,13 @@ export default {
   max-width: 1150px;
 }
 .blockchain-dev-ser {
+  .bds-img{
+    display: flex;
+    justify-content: center;
+  }
   img {
     max-width: 700px;
+    margin: auto;
     text-align: center;
   }
 }
@@ -377,7 +383,7 @@ export default {
 
 .my-card-bswd {
   width: 250px;
-//   height: 300px;
+  //   height: 300px;
   margin: 10px;
   transition: all 0.24s;
   p {
@@ -595,5 +601,10 @@ export default {
       max-width: unset;
     }
   }
+  .blockchain-dev-ser {
+  img {
+    max-width: 300px;
+  }
+}
 }
 </style>
