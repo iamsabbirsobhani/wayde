@@ -1,19 +1,31 @@
 // app global css in SCSS form
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 // @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-head{
-    // font-family: 'Roboto', sans-serif;
-    font-family: 'Raleway', sans-serif;
+head {
+  // font-family: 'Roboto', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
-body, html {
-    height: 100%;
-    // background: #F0F2F5;
+body,
+html {
+  height: 100%;
+  // background: #F0F2F5;
 }
 * {
-    box-sizing: fborder-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: fborder-box;
+  margin: 0;
+  padding: 0;
 }
 #q-app > div > div.q-page-container > main {
-    min-height: unset !important;
+  min-height: unset !important;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: rgb(255, 255, 255);
+  background: #68b800;
+}
+
+::selection {
+  color: rgb(255, 255, 255);
+  background: #68b800;
 }
