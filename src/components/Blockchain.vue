@@ -16,7 +16,7 @@
           transactions.
         </p>
         <p>
-          Having <strong> 32 years of experience </strong> in software
+          Having <strong> experience </strong> in software
           development and constantly growing its competencies in innovative
           domains, ScienceSoft offers end-to-end blockchain software and
           application development,<strong>
