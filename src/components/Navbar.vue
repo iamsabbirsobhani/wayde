@@ -74,8 +74,8 @@
     <div class="overlay-content">
       <q-btn
         @click="scroll('twr')"
-        style="background: #ff0080; color: white"
         label="Technology"
+        flat
       />
       <!-- <q-btn
         class="q-btn"
@@ -85,56 +85,64 @@
         label="Technology"
       /> -->
       <!-- style="color: #ff0080" -->
+        <!-- class="bg-deep-orange button yellow" -->
+        <!-- size="20px" -->
       <q-btn
         @click="scroll('offerings')"
-        class="bg-deep-orange button yellow"
         label="Our Offerings"
-        style="color: white; width: 280px"
-        size="20px"
+        flat
       />
+        <!-- class="bg-lime-14 q-btn" -->
+        <!-- style="color: white" -->
       <q-btn
         @click="scroll('bcd')"
-        class="bg-lime-14 q-btn"
-        style="color: white"
         label="Blockchain"
+        flat
       />
+        <!-- class="bg-indigo-10" -->
       <q-btn
         @click="scroll('bcc')"
-        class="bg-indigo-10"
-        style="color: white"
+        style="color: black"
+        flat
         label="Blockchain cycle"
       />
+        <!-- class="bg-light-blue-5 button blue"
+        size="20px"
+        style="color: white; width: 280px" -->
       <q-btn
         @click="scroll('bswd')"
-        class="bg-light-blue-5 button blue"
-        style="color: white; width: 280px"
-        size="20px"
         label="Solutions"
+        flat
+        style="color: black"
       />
+        <!-- style="color: white"
+        class="bg-green" -->
       <q-btn
         @click="scroll('bucws')"
-        class="bg-green"
-        style="color: white"
         label="Cases We Support"
+        flat
       />
+        <!-- class="bg-red-13" -->
+        <!-- style="color: white" -->
       <q-btn
         @click="scroll('bdps')"
-        class="bg-red-13"
-        style="color: white"
         label="Our Principles"
+        flat
       />
+        <!-- style="color: white; width: 280px" -->
+        <!-- class="bg-purple button white" -->
+        <!-- size="20px" -->
       <q-btn
         @click="scroll('solutions')"
-        class="bg-purple button white"
+        flat
         label="Solution We Deliver"
-        style="color: white; width: 280px"
-        size="20px"
       />
+        <!-- class="bg-pink-9" -->
+        <!-- style="color: white" -->
       <q-btn
         @click="scroll('contactUs')"
-        class="bg-pink-9"
-        style="color: white"
         label="Contact Us"
+        flat
       />
     </div>
   </div>

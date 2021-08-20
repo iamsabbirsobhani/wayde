@@ -8,24 +8,22 @@
     <div class="front-template">
       <div class="front-typo">
         <h1>
-          SOFTWARE <strong>CONSULTING</strong> AND DEVELOPMENT <br />
-          FOR YOUR DIGITAL SUCCESS.
+          LEADING <strong>BLOCKCHAIN</strong> DEVELOPMENT STARTUP IN INDIA
         </h1>
         <p>
-          Since 1989. For millions of users. We transform businesses with
-          powerful and adaptable digital solutions that satisfy the needs of
-          today and unlock the opportunities of tomorrow.
+          Since 2020. We transform businesses with powerful and adaptable digital solutions that satisfy the needs of today and unlock the opportunities of tomorrow.
         </p>
       </div>
       <div class="front-btn">
-        <q-btn class="btn" size="23px" color="black" label="Whitepaper" />
+        <!-- <q-btn class="btn" size="23px" color="black" label="Whitepaper" />
         <q-btn
           class="btn2"
           size="23px"
           no-wrap
           color="black"
           label="Early access"
-        />
+        /> -->
+        <TopContactNo/>
       </div>
     </div>
     <q-page-sticky
@@ -49,7 +47,9 @@
 
 <script>
 import { onMounted, ref } from "vue";
+import TopContactNo from '../components/TopContactNo.vue'
 export default {
+  components: { TopContactNo },
   setup() {
     const scrl = ref(null);
     const totopStyle = ref({

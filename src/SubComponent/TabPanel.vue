@@ -49,6 +49,12 @@
                   <img src="../assets/blockchains/graphene-logo.svg" alt="" />
                 </q-card-section>
               </q-card>
+
+              <q-card class="my-card-bct">
+                <q-card-section class="qcard">
+                  <img style="object-fit: cover;" src="../assets/download.png" alt="" />
+                </q-card-section>
+              </q-card>
             </div>
           </q-tab-panel>
 

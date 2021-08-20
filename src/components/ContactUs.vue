@@ -1,24 +1,40 @@
 <template>
   <div id="contactUs" class="parent-card">
-    <q-card class="card">
-      <q-card-section class="my-card">
-        <div class="lottie">
-          <lottie-player
-            src="https://assets3.lottiefiles.com/packages/lf20_bp1bwvhv.json"
-            background="transparent"
-            speed="0.5"
-            :style="lottieStyle"
-            loop
-            autoplay
-          ></lottie-player>
-        </div>
-        <div class="q-pa-md contacts" style="max-width: 400px">
-          <h3>Our contact details</h3>
-          <p><i class="las la-phone-volume"></i> 0123 22123 2323</p>
-          <p><i class="las la-envelope"></i> contact@wayde.in</p>
-        </div>
-      </q-card-section>
-    </q-card>
+    <!-- <div class="lottie"> -->
+
+    <div class="q-pa-md row items-start q-gutter-md">
+      <q-card class="my-card" flat bordered>
+        <lottie-player
+          src="https://assets3.lottiefiles.com/packages/lf20_bp1bwvhv.json"
+          background="transparent"
+          speed="0.5"
+          :style="lottieStyle"
+          loop
+          autoplay
+        ></lottie-player>
+
+        <q-card-section>
+          <div class="text-overline text-orange-9">Contact Us</div>
+          <div class="text-h5 q-mt-sm q-mb-xs">
+            Get an appointment for Meeting on our Corporate office space at
+            Kochi, The queen of arabian sea
+          </div>
+          <div style="margin-top: 20px;">
+            <h6 class="text-light-green-14">Wayde LLP</h6>
+            <address>
+              <br>
+              USA 7th Floor, Centre A <br />
+              Alapatt Heritage Building <br />
+              MG Road North End, Ernakulam-682035 <br />
+              Cochin <br/>
+               <br/>
+              <p href="tel:+91-0484-4148299"><i class="las la-phone-volume"></i>+91 0484-4148299</p>
+              <p><i class="las la-envelope"></i> helpdesk@wayde.in</p>
+            </address>
+          </div>
+        </q-card-section>
+      </q-card>
+    </div>
   </div>
 </template>
 
