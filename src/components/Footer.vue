@@ -1,8 +1,8 @@
 <template>
-  <div class="footer">
+  <div class="footer" :style="isDarkBg">
     <div class="left">
       <img src="../assets/WayedNavIco.png" alt="" />
-      <p>
+      <p :style="isDarkText">
         You don’t want to miss the news on Wayde. Subscribe - we’ll only send
         updates on our launch.
       </p>
@@ -43,7 +43,7 @@
       </div>
     </div>
   </div>
-  <div class="foot-bottom">
+  <div :style="isDarkBg" class="foot-bottom">
     <!-- <div class="foot-b-left"> -->
     <p>Copyright © 2021 Wayde</p>
     <p>Terms & Conditions</p>
@@ -53,7 +53,22 @@
 </template>
 
 <script>
-export default {};
+import { useStore } from "vuex";
+import { ref, computed } from "vue";
+export default {
+  setup() {
+    const $store = useStore();
+    // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBG,
+    });
+
+    return { isDarkBg, isDarkText}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -66,7 +81,7 @@ export default {};
   border-top-right-radius: 50px;
   padding: 80px;
   width: 100%;
-  box-shadow: 0 2px 15px 1px rgb(0 0 0 / 10%);
+  box-shadow: 0 2px 15px 1px ;
 }
 .right {
   display: flex;

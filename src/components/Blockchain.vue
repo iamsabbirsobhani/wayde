@@ -8,14 +8,14 @@
       <div class="bds-img">
         <img src="../assets/bds-new.webp" alt="" />
       </div>
-      <div class="bdc-intro">
-        <p>
+      <div class="bdc-intro" >
+        <p :style="isDarkText">
           Blockchain development services aim at creating decentralized
           blockchain networks that allow for establishing new business models
           and provide businesses with increased traceability of data and
           transactions.
         </p>
-        <p>
+        <p :style="isDarkText">
           Having <strong> experience </strong> in software development and
           constantly growing its competencies in innovative domains, ScienceSoft
           offers end-to-end blockchain software and application
@@ -29,15 +29,16 @@
     </div>
 
     <!-- BLOCKCHAIN SOLUTIONS WE DELIVER -->
-    <div id="bswd" class="bswd">
+    <div id="bswd" class="bswd" >
       <div class="bdc-subtitle">
         <h3>BLOCKCHAIN SOLUTIONS WE DELIVER</h3>
         <div class="dash"></div>
       </div>
       <div class="bswd-card">
+          <!-- style="overflow: auto" -->
         <q-card
+          :style="isDarkBg"
           class="my-card-bswd"
-          style="overflow: auto"
           v-for="item in bswd"
           :key="item"
         >
@@ -51,7 +52,7 @@
             <div class="mobile-lottie-inner" v-html="item.lottie"></div>
           </q-card-section>
           <q-card-section>
-            <p>{{ item.details }}</p>
+            <p :style="isDarkText">{{ item.details }}</p>
           </q-card-section>
         </q-card>
       </div>
@@ -59,15 +60,16 @@
     <!-- BLOCKCHAIN SOLUTIONS WE DELIVER -->
 
     <!-- BLOCKCHAIN USE CASES WE SUPPORT -->
-    <div class="bucws" id="bucws">
+    <div class="bucws" id="bucws" >
       <div class="bdc-subtitle">
         <h3>BLOCKCHAIN USE CASES WE SUPPORT</h3>
         <div class="dash"></div>
       </div>
       <div class="bucws-card">
+          <!-- style="overflow: auto" -->
         <q-card
+        :style="isDarkBg"
           class="my-card-bucws"
-          style="overflow: auto"
           v-for="it in bucwss"
           :key="it"
         >
@@ -78,7 +80,7 @@
             <img :src="require(`assets/bucws/${it.src}.svg`)" alt="" />
           </q-card-section>
           <q-card-section>
-            <p>{{ it.details }}</p>
+            <p :style="isDarkText">{{ it.details }}</p>
           </q-card-section>
         </q-card>
       </div>
@@ -92,10 +94,11 @@
         <div class="dash"></div>
       </div>
 
+          <!-- style="overflow: auto" -->
       <div class="cyso-card">
         <q-card
+        :style="isDarkBg"
           class="my-card-cyso"
-          style="overflow: auto"
           v-for="item in cyso"
           :key="item"
         >
@@ -104,7 +107,7 @@
           </q-card-section>
           <q-card-section>
             <ul v-for="list in item.lists" :key="list">
-              <li>{{ list }}</li>
+              <li  :style="isDarkText">{{ list }}</li>
             </ul>
           </q-card-section>
         </q-card>
@@ -120,7 +123,7 @@
       </div>
 
       <div class="twr-card">
-        <q-card v-if="verticalPanel" class="my-card-twr" style="overflow: auto">
+        <q-card :style="isDarkBg"  v-if="verticalPanel" class="my-card-twr" style="overflow: auto">
           <q-card-section>
             <!-- <div class="text-h6">{{ item.title }}</div> -->
           </q-card-section>
@@ -139,7 +142,7 @@
         <h3>BLOCKCHAIN DEVELOPMENT PRINCIPLES WE STICK TO</h3>
         <div class="dash"></div>
       </div>
-      <q-card class="my-card-bdp">
+      <q-card :style="isDarkBg" class="my-card-bdp">
         <q-card-section class="bdp-card-flex">
           <div>
             <lottie-player
@@ -157,7 +160,7 @@
             </h3>
             <div class="dash"></div>
             <div>
-              <p>
+              <p :style="isDarkText">
                 We devise a strategy to prevent governance, process, and
                 technology risks in compliance with
                 <strong>GDPR, HIPAA, PSI/DSS, AML, ISO 27001/27002,</strong>
@@ -171,14 +174,14 @@
         </q-card-section>
       </q-card>
 
-      <q-card class="my-card-bdp" style="margin-top: 100px">
+      <q-card :style="isDarkBg" class="my-card-bdp" >
         <q-card-section class="bdp-card-flex">
           <img src="../assets/our-principles_guaranteed-roi.svg" alt="" />
           <div class="bdc-subtitle">
             <h3 style="color: #1c8eff">Guaranteed ROI</h3>
             <div class="dash"></div>
             <div>
-              <p>
+              <p :style="isDarkText">
                 We help you achieve <strong> ROI </strong>for blockchain-based
                 software in <strong> 12-18 months.</strong> Despite the
                 technology being capital-intensive, it allows non-IT enterprises
@@ -201,7 +204,7 @@
         <div class="dash"></div>
       </div>
       <div>
-        <p>
+        <p :style="isDarkText">
           <strong> 60%</strong> of CIOs across sectors expect to adopt
           blockchain <strong>in the next three years.</strong> Start your
           blockchain development project now to stay ahead of the competition!
@@ -216,13 +219,24 @@
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import TabPanelBlockchain from "../SubComponent/TabPanelBlockchain.vue";
 import TabPanel from "src/SubComponent/TabPanel.vue";
 import TimelineBlockchains from "./TimelineBlockchains.vue";
+import { useStore } from "vuex";
 export default {
   components: { TabPanelBlockchain, TabPanel, TimelineBlockchains },
   setup() {
+
+    const $store = useStore();
+      // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBG,
+    });
+
     const bswd = ref({
       a: {
         title: `Smart contracts`,
@@ -343,6 +357,8 @@ export default {
       bucwss,
       cyso,
       verticalPanel,
+      isDarkText,
+      isDarkBg
     };
   },
 };
@@ -508,6 +524,13 @@ export default {
   //   width: 300px;
   margin: 10px;
   border-top: 10px solid #68b800;
+  transition: all 0.24s;
+
+}
+
+.my-card-twr:hover{
+  transform: scale(1.0001);
+  box-shadow: 0 3px 15px -2px;
 }
 
 .bdp-card {
@@ -548,6 +571,14 @@ export default {
   }
 }
 
+.my-card-bdp{
+  margin-top: 100px;
+  transition: all 0.24s;
+}
+.my-card-bdp:hover{
+  transform: scale(1.0001);
+  box-shadow: 0 3px 15px -2px;
+}
 .footer-block {
   margin-top: 150px;
   h3 {

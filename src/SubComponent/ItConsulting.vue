@@ -1,10 +1,10 @@
 <template>
-  <div class="software-dev">
+  <div :style="isDarkBg" class="software-dev">
     <div class="title">
       <h1>IT Consulting</h1>
       <div class="dash"></div>
       <div class="details">
-        <p>
+        <p :style="isDarkText">
           Our experts can help to develop and implement an effective IT
           strategy, assist in smooth digital transformation and system
           integration as well as advise on improvements to your digital customer
@@ -14,22 +14,37 @@
     </div>
     <div class="features">
       <ul>
-        <li>Digital transformation Consulting</li>
-        <li>Digital Crisis Management Consulting</li>
-        <li>Solution consulting</li>
-        <li>Enterprise IT consulting</li>
+        <li :style="isDarkText">Digital transformation Consulting</li>
+        <li :style="isDarkText">Digital Crisis Management Consulting</li>
+        <li :style="isDarkText">Solution consulting</li>
+        <li :style="isDarkText">Enterprise IT consulting</li>
       </ul>
       <ul>
-        <li>Project Management Consulting</li>
-        <li>IT Service Management Consulting</li>
-        <li>Platform consulting</li>
+        <li :style="isDarkText">Project Management Consulting</li>
+        <li :style="isDarkText">IT Service Management Consulting</li>
+        <li :style="isDarkText">Platform consulting</li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { useStore } from "vuex";
+import { ref, computed } from "vue";
+export default {
+  setup() {
+    const $store = useStore();
+    // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBG,
+    });
+
+    return { isDarkBg, isDarkText}
+  },
+};
 </script>
 
 <style lang="scss" scoped>

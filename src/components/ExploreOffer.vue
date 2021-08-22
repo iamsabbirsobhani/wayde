@@ -5,7 +5,7 @@
   <div style="margin: auto" class="dash"></div>
 
   <q-card  class="card offf">
-    <q-card-section class="exploare-offer">
+    <q-card-section :style="isDarkBg"  class="exploare-offer">
       <div class="offer-menu">
         <ul class="list">
           <li :class="{ styleLight: softDevActive }" @click="softDev">
@@ -66,8 +66,9 @@
         default-opened
         expand-separator
         header-class="text-primary"
+        :style="isDarkBg"
       >
-        <q-card>
+        <q-card :style="isDarkBg">
           <q-card-section>
             <transition name="fade">
               <SoftwareDevelopment v-if="softDevActive" />
@@ -83,8 +84,9 @@
         label="Testing & QA"
         header-class="text-teal"
         default-opened
+        :style="isDarkBg"
       >
-        <q-card>
+        <q-card :style="isDarkBg">
           <q-card-section>
             <transition name="fade">
               <TestingQA />
@@ -100,8 +102,9 @@
         label="UX/UI Design"
         header-class="text-purple"
         default-opened
+        :style="isDarkBg"
       >
-        <q-card>
+        <q-card :style="isDarkBg">
           <q-card-section>
             <transition name="fade">
               <UXUI />
@@ -118,8 +121,9 @@
         header-class="text-teal"
         expand-icon-class="text-teal"
         default-opened
+        :style="isDarkBg"
       >
-        <q-card class="bg-white">
+        <q-card :style="isDarkBg">
           <q-card-section>
             <transition name="fade">
               <ItConsulting />
@@ -134,8 +138,9 @@
         header-class="text-orange"
         expand-icon-class="text-orange"
         default-opened
+        :style="isDarkBg"
       >
-        <q-card class="bg-white">
+        <q-card :style="isDarkBg">
           <q-card-section>
             <transition name="fade">
               <DataAnalytics />
@@ -150,8 +155,9 @@
         expand-separator
         header-class="text-primary"
         default-opened
+        :style="isDarkBg"
       >
-        <q-card class="bg-white">
+        <q-card :style="isDarkBg">
           <q-card-section>
             <transition name="fade">
               <HelpDesk />
@@ -165,8 +171,9 @@
         label="Infrastructure Services"
         expand-separator
         header-class="text-red"
+        :style="isDarkBg"
       >
-        <q-card class="bg-white">
+        <q-card :style="isDarkBg">
           <q-card-section>
             <transition name="fade">
               <InfrastructureServices />
@@ -180,8 +187,9 @@
         label="Cybersecurity Services"
         expand-separator
         header-class="text-primary"
+        :style="isDarkBg"
       >
-        <q-card class="bg-white">
+        <q-card :style="isDarkBg">
           <q-card-section>
             <transition name="fade">
               <CybersecurityServices />
@@ -197,13 +205,14 @@
 <script>
 import SoftwareDevelopment from "../SubComponent/SoftwareDevelopment.vue";
 import ItConsulting from "../SubComponent/ItConsulting.vue";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import TestingQA from "src/SubComponent/TestingQA.vue";
 import UXUI from "./UXUI.vue";
 import DataAnalytics from "src/SubComponent/DataAnalytics.vue";
 import InfrastructureServices from "src/SubComponent/InfrastructureServices.vue";
 import CybersecurityServices from "src/SubComponent/CybersecurityServices.vue";
 import HelpDesk from "./HelpDesk.vue";
+import { useStore } from "vuex"
 export default {
   components: {
     SoftwareDevelopment,
@@ -224,6 +233,16 @@ export default {
     const helpdesk = ref(false);
     const inser = ref(false);
     const cybersec = ref(false);
+
+
+        const $store = useStore();
+      // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBG,
+    });
 
     const softDev = () => {
       setTimeout(() => {
@@ -347,6 +366,8 @@ export default {
       inSer,
       cybersec,
       cyberSec,
+      isDarkText,
+      isDarkBg
     };
   },
 };

@@ -1,21 +1,21 @@
 <template>
   <div class="parent-card">
-    <q-card class="card">
+    <q-card :style="isDarkBg" class="card">
       <q-card-section class="my-card">
         <div class="left-it">
-          <h2>EVERY ASPECT OF YOUR IT ECOSYSTEM. TAKEN CARE OF.</h2>
+          <h2 :style="isDarkText">EVERY ASPECT OF YOUR IT ECOSYSTEM. TAKEN CARE OF.</h2>
           <div class="dash"></div>
-          <p>
+          <p :style="isDarkText">
             Comprehensive care of your cloud or on-premises infrastructure and
             applications with:
           </p>
           <ul>
-            <li>Consulting</li>
-            <li>Implementation</li>
-            <li>Management and support</li>
-            <li>Security</li>
-            <li>Help desk services</li>
-            <li>Migration</li>
+            <li :style="isDarkText">Consulting</li>
+            <li :style="isDarkText">Implementation</li>
+            <li :style="isDarkText">Management and support</li>
+            <li :style="isDarkText">Security</li>
+            <li :style="isDarkText">Help desk services</li>
+            <li :style="isDarkText">Migration</li>
           </ul>
         </div>
         <div class="right-it">
@@ -27,7 +27,22 @@
 </template>
 
 <script>
-export default {};
+import { useStore } from "vuex";
+import { ref, computed } from "vue";
+export default {
+  setup() {
+    const $store = useStore();
+    // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBG,
+    });
+
+    return { isDarkBg, isDarkText}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -41,10 +56,16 @@ export default {};
   margin-top: 250px;
 }
 
+
 .card {
   max-width: 1150px;
   margin: auto;
+  transition: all .24s;
 }
+  .card:hover{
+    transform: scale(1.0001);
+    box-shadow: 0 3px 15px -2px;
+  }
 
 .my-card {
   display: flex;

@@ -1,10 +1,10 @@
 <template>
-  <div class="software-dev">
+  <div :style="isDarkBg" class="software-dev">
     <div class="title">
       <h1>UX/UI Design</h1>
       <div class="dash"></div>
       <div class="details">
-        <p>
+        <p :style="isDarkText">
           User experience and user interface design for all types of websites,
           SaaS, and web/mobile apps. We combine the latest UI/UX trends with our
           customers’ individual goals and needs to deliver intuitive, vibrant,
@@ -14,24 +14,38 @@
     </div>
     <div class="features">
       <ul>
-        <li>User Interface(UI) Design</li>
-        <li>Software-as-as-Service(Saas) UI Design</li>
-        <li>User Experience(UX) Design</li>
-        <li>Responsive Web Design</li>
+        <li :style="isDarkText">User Interface(UI) Design</li>
+        <li :style="isDarkText">Software-as-as-Service(Saas) UI Design</li>
+        <li :style="isDarkText">User Experience(UX) Design</li>
+        <li :style="isDarkText">Responsive Web Design</li>
       </ul>
       <ul>
-        <li>Responsive Web App Design</li>
-        <li>Ecommerce Website Design</li>
-        <li>Website Redesign</li>
+        <li :style="isDarkText">Responsive Web App Design</li>
+        <li :style="isDarkText">Ecommerce Website Design</li>
+        <li :style="isDarkText">Website Redesign</li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
-</script>
+import { useStore } from "vuex";
+import { ref, computed } from "vue";
+export default {
+  setup() {
+    const $store = useStore();
+    // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBG,
+    });
 
+    return { isDarkBg, isDarkText}
+  },
+};
+</script>
 <style lang="scss" scoped>
 .features {
   display: flex;

@@ -1,34 +1,51 @@
 <template>
-  <div class="software-dev">
+  <div :style="isDarkBg" class="software-dev">
     <div class="title">
       <h1>Cybersecurity Services</h1>
       <div class="dash"></div>
       <div class="details">
-        <p>
-          Equipped with 16-year experience in information security and employing
-          ISO 27001 certified information security management practices, we help
-          to achieve the robust protection of the companies’ applications and
+        <p :style="isDarkText">
+          Equipped with experience in information security and employing ISO
+          27001 certified information security management practices, we help to
+          achieve the robust protection of the companies’ applications and
           networks.
         </p>
       </div>
     </div>
     <div class="features">
       <ul>
-        <li>Managed security services</li>
-        <li>Information security consulting</li>
-        <li>Application security implementation</li>
+        <li :style="isDarkText">Managed security services</li>
+        <li :style="isDarkText">Information security consulting</li>
+        <li :style="isDarkText">Application security implementation</li>
       </ul>
       <ul>
-        <li>Compliance testing</li>
-        <li>Security code review</li>
-        <li>Vulnerability assessment and penetration testing</li>
+        <li :style="isDarkText">Compliance testing</li>
+        <li :style="isDarkText">Security code review</li>
+        <li :style="isDarkText">
+          Vulnerability assessment and penetration testing
+        </li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { useStore } from "vuex";
+import { ref, computed } from "vue";
+export default {
+  setup() {
+    const $store = useStore();
+    // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBG,
+    });
+
+    return { isDarkBg, isDarkText };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

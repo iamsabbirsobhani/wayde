@@ -4,6 +4,7 @@
     <div class="q-gutter-y-md" style="max-width: 600px">
       <q-card>
         <q-tabs
+
           v-model="tabPanel"
           dense
           class="text-grey"
@@ -12,31 +13,41 @@
           align="justify"
           narrow-indicator
         >
-          <q-tab name="blockchain" no-caps label="Blockchain Tools" />
-          <q-tab name="programming" label="Programming Language" />
-          <q-tab name="cloud" label="Cloud Platforms" />
+          <q-tab :style="isDarkBg" name="blockchain" no-caps label="Blockchain Tools" />
+          <q-tab :style="isDarkBg" name="programming" label="Programming Language" />
+          <q-tab :style="isDarkBg" name="cloud" label="Cloud Platforms" />
         </q-tabs>
 
         <q-separator />
 
-        <q-tab-panels v-model="tabPanel" animated>
-          <q-tab-panel name="blockchain">
-           <div class="text-h4 q-mb-md">
+        <q-tab-panels  :style="isDarkBg"  v-model="tabPanel" animated>
+          <q-tab-panel  name="blockchain">
+            <div class="text-h4 q-mb-md">
               <div class="bdc-subtitle">
                 <h3>Blockchain tools</h3>
                 <div class="dash"></div>
               </div>
             </div>
 
-            <div class="card">
-              <q-card class="my-card-bct">
+            <div   class="card">
+              <q-card  :style="isDarkBg" class="my-card-bct">
+                <q-card-section class="qcard">
+                  <img
+                    style="object-fit: cover"
+                    src="../assets/download.png"
+                    alt=""
+                  />
+                </q-card-section>
+              </q-card>
+
+              <q-card  :style="isDarkBg"  class="my-card-bct">
                 <q-card-section class="qcard">
                   <img src="../assets/blockchains/ethereum.svg" alt="" />
                 </q-card-section>
               </q-card>
 
-              <q-card class="my-card-bct">
-                <q-card-section class="qcard">
+              <q-card  :style="isDarkBg" class="my-card-bct">
+                <q-card-section  class="qcard">
                   <img
                     src="../assets/blockchains/hyperledger_fabric.svg"
                     alt=""
@@ -44,45 +55,36 @@
                 </q-card-section>
               </q-card>
 
-              <q-card class="my-card-bct">
+              <q-card  :style="isDarkBg" class="my-card-bct">
                 <q-card-section class="qcard">
                   <img src="../assets/blockchains/graphene-logo.svg" alt="" />
-                </q-card-section>
-              </q-card>
-
-              <q-card class="my-card-bct">
-                <q-card-section class="qcard">
-                  <img style="object-fit: cover;" src="../assets/download.png" alt="" />
                 </q-card-section>
               </q-card>
             </div>
           </q-tab-panel>
 
           <q-tab-panel name="programming">
-
-               <div class="text-h4 q-mb-md">
+            <div  class="text-h4 q-mb-md">
               <div class="bdc-subtitle">
-                <h3>
-                  Programming Languages
-                </h3>
+                <h3>Programming Languages</h3>
                 <div class="dash"></div>
               </div>
             </div>
 
-            <div class="card">
-              <q-card class="my-card-bct">
+            <div :style="isDarkBg" class="card">
+              <q-card :style="isDarkBg" class="my-card-bct">
                 <q-card-section class="qcard">
                   <img src="../assets/blockchains/c-plus-plus.svg" alt="" />
                 </q-card-section>
               </q-card>
 
-              <q-card class="my-card-bct">
+              <q-card class="my-card-bct" :style="isDarkBg">
                 <q-card-section class="qcard">
                   <img src="../assets/blockchains/java-logo.svg" alt="" />
                 </q-card-section>
               </q-card>
 
-              <q-card class="my-card-bct">
+              <q-card class="my-card-bct" :style="isDarkBg">
                 <q-card-section class="qcard">
                   <img
                     src="../assets/blockchains/go-logo-blue-small.svg"
@@ -90,7 +92,7 @@
                   />
                 </q-card-section>
               </q-card>
-              <q-card class="my-card-bct">
+              <q-card class="my-card-bct" :style="isDarkBg">
                 <q-card-section class="qcard">
                   <img
                     src="../assets/blockchains/node-js-logo-small.svg"
@@ -98,17 +100,17 @@
                   />
                 </q-card-section>
               </q-card>
-              <q-card class="my-card-bct">
+              <q-card class="my-card-bct" :style="isDarkBg">
                 <q-card-section class="qcard">
                   <img src="../assets/blockchains/c-sharp-logo.svg" alt="" />
                 </q-card-section>
               </q-card>
-              <q-card class="my-card-bct">
+              <q-card class="my-card-bct" :style="isDarkBg">
                 <q-card-section class="qcard">
                   <img src="../assets/blockchains/python_1.svg" alt="" />
                 </q-card-section>
               </q-card>
-              <q-card class="my-card-bct">
+              <q-card class="my-card-bct" :style="isDarkBg">
                 <q-card-section class="qcard">
                   <img
                     src="../assets/blockchains/javascript-logo-unofficial.svg"
@@ -117,21 +119,18 @@
                 </q-card-section>
               </q-card>
             </div>
-
           </q-tab-panel>
 
           <q-tab-panel name="cloud">
             <div class="text-h4 q-mb-md">
               <div class="bdc-subtitle">
-                <h3>
-                  Cloud Platforms
-                </h3>
+                <h3>Cloud Platforms</h3>
                 <div class="dash"></div>
               </div>
             </div>
 
-            <div class="card">
-              <q-card class="my-card-bct">
+            <div :style="isDarkBg" class="card">
+              <q-card class="my-card-bct" :style="isDarkBg">
                 <q-card-section class="qcard">
                   <img
                     src="../assets/blockchains/amazon-managed-blockchain-logo.svg"
@@ -140,7 +139,7 @@
                 </q-card-section>
               </q-card>
 
-              <q-card class="my-card-bct">
+              <q-card :style="isDarkBg" class="my-card-bct">
                 <q-card-section class="qcard">
                   <img
                     src="../assets/blockchains/google-cloud-platform-logo.svg"
@@ -149,7 +148,7 @@
                 </q-card-section>
               </q-card>
 
-              <q-card class="my-card-bct">
+              <q-card class="my-card-bct" :style="isDarkBg">
                 <q-card-section class="qcard">
                   <img
                     src="../assets/blockchains/oracle-blockchain-logo.svg"
@@ -158,7 +157,7 @@
                 </q-card-section>
               </q-card>
 
-              <q-card class="my-card-bct">
+              <q-card class="my-card-bct" :style="isDarkBg">
                 <q-card-section class="qcard">
                   <img
                     src="../assets/blockchains/ibm-blockchain-logo.svg"
@@ -176,13 +175,25 @@
 </template>
 
 <script>
-import { ref } from "vue";
-
+import { ref, computed } from "vue";
+import { useStore } from "vuex";
 export default {
   setup() {
+    const $store = useStore();
+    // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBG,
+    });
+
     return {
       tabPanel: ref("blockchain"),
       splitterModel: ref(20),
+
+      isDarkText,
+      isDarkBg
     };
   },
 };
@@ -219,8 +230,7 @@ export default {
 }
 
 .qcard {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
-
 </style>

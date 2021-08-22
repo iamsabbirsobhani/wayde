@@ -17,6 +17,46 @@ export default store(function (/* { ssrContext } */) {
     modules: {
       // example
     },
+    state: {
+      dark: false,
+      darkText: {
+        color: 'black',
+      },
+      darkBG: {
+        background: 'white'
+      },
+      darkBgFront: {
+        background: '#f0f0f9'
+      },
+      navBtn: {
+        color: 'black'
+      }
+    },
+    getters: {
+      getDark: (state) => {
+        return state.dark
+      },
+      getDarkText: (state) => {
+        return state.darkText
+      }
+    },
+    mutations: {
+      updateDark(state, payload) {
+        state.dark = payload
+      },
+      updateTextColor(state, payload) {
+        state.darkText.color = payload
+      },
+      updateBg(state, payload) {
+        state.darkBG.background = payload
+      },
+      updatedarkBgFront(state, payload) {
+        state.darkBgFront.background = payload
+      },
+      updateNavBtn(state, payload) {
+        state.navBtn.color = payload
+      }
+    },
 
     // enable strict mode (adds overhead!)
     // for dev mode and --debug builds only

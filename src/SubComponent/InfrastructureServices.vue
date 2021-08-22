@@ -1,31 +1,46 @@
 <template>
-  <div class="software-dev">
+  <div :style="isDarkBg" class="software-dev">
     <div class="title">
       <h1>Infrastructure Services</h1>
       <div class="dash"></div>
       <div class="details">
-      <p>
-        We apply our 10-year experience to offer a full set of infrastructure services. Being ISO 2700 certified allows us to guarantee that we access our customers' without creating any security risks or vulnerabilities.
+      <p :style="isDarkText">
+        We apply our experience to offer a full set of infrastructure services. Being ISO 2700 certified allows us to guarantee that we access our customers' without creating any security risks or vulnerabilities.
       </p>
       </div>
     </div>
     <div class="features">
       <ul>
-        <li>Managed IT support</li>
-        <li>Cloud consulting and management</li>
-        <li>Virtual desktop consulting, implementation and support</li>
+        <li :style="isDarkText">Managed IT support</li>
+        <li :style="isDarkText">Cloud consulting and management</li>
+        <li :style="isDarkText">Virtual desktop consulting, implementation and support</li>
       </ul>
       <ul>
-        <li>Data center support and management</li>
-        <li>DevOps consulting and implementation</li>
-        <li>Networking management services</li>
+        <li :style="isDarkText">Data center support and management</li>
+        <li :style="isDarkText">DevOps consulting and implementation</li>
+        <li :style="isDarkText">Networking management services</li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { useStore } from "vuex";
+import { ref, computed } from "vue";
+export default {
+  setup() {
+    const $store = useStore();
+    // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBG,
+    });
+
+    return { isDarkBg, isDarkText}
+  },
+};
 </script>
 
 <style lang="scss" scoped>

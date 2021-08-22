@@ -1,9 +1,10 @@
 <template>
-  <div style="height: 350px">
+  <div :style="isDarkBg" style="height: 350px">
     <q-splitter v-model="splitterModel">
-      <template v-slot:before>
+      <template  v-slot:before>
         <q-tabs v-model="tab" vertical class="text-teal">
           <q-tab
+
             name="blockchaintools"
             icon="las la-tools"
             label="Blockchain tools"
@@ -29,8 +30,9 @@
           vertical
           transition-prev="jump-up"
           transition-next="jump-up"
+
         >
-          <q-tab-panel name="blockchaintools">
+          <q-tab-panel :style="isDarkBg" name="blockchaintools">
             <div class="text-h4 q-mb-md">
               <div class="bdc-subtitle">
                 <h3>Blockchain tools</h3>
@@ -39,6 +41,12 @@
             </div>
 
             <div class="card">
+              <q-card class="my-card-bct">
+                <q-card-section class="qcard">
+                  <img src="../assets/download.png" alt="" />
+                </q-card-section>
+              </q-card>
+
               <q-card class="my-card-bct">
                 <q-card-section>
                   <img src="../assets/blockchains/ethereum.svg" alt="" />
@@ -59,21 +67,13 @@
                   <img src="../assets/blockchains/graphene-logo.svg" alt="" />
                 </q-card-section>
               </q-card>
-
-                <q-card class="my-card-bct">
-                <q-card-section class="qcard">
-                  <img src="../assets/download.png" alt="" />
-                </q-card-section>
-              </q-card>
             </div>
           </q-tab-panel>
 
-          <q-tab-panel name="proglang">
+          <q-tab-panel :style="isDarkBg" name="proglang">
             <div class="text-h4 q-mb-md">
               <div class="bdc-subtitle">
-                <h3>
-                  Programming Languages
-                </h3>
+                <h3>Programming Languages</h3>
                 <div class="dash"></div>
               </div>
             </div>
@@ -128,12 +128,10 @@
             </div>
           </q-tab-panel>
 
-          <q-tab-panel name="cloudplatform">
+          <q-tab-panel :style="isDarkBg" name="cloudplatform">
             <div class="text-h4 q-mb-md">
               <div class="bdc-subtitle">
-                <h3>
-                  Cloud Platforms
-                </h3>
+                <h3>Cloud Platforms</h3>
                 <div class="dash"></div>
               </div>
             </div>
@@ -174,9 +172,6 @@
                   />
                 </q-card-section>
               </q-card>
-
-
-
             </div>
           </q-tab-panel>
         </q-tab-panels>
@@ -188,13 +183,23 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useStore } from "vuex";
 
 export default {
   setup() {
+    const $store = useStore();
+    // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBG,
+    });
     return {
       tab: ref("blockchaintools"),
       splitterModel: ref(20),
+      isDarkBg,
     };
   },
 };

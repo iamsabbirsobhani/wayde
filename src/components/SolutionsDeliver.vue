@@ -8,48 +8,48 @@
       <div class="row justify-between">
         <q-parallax :height="500" src="../assets/solutionProvide.jpg">
           <div class="allCards">
-            <q-card class="my-card-s">
+            <q-card :style="isDarkBg" class="my-card-s">
               <q-card-section class="text-h6">
                 Enterprise application
               </q-card-section>
             </q-card>
-            <q-card class="my-card-s">
+            <q-card :style="isDarkBg" class="my-card-s">
               <q-card-section class="text-h6"> ERP </q-card-section>
             </q-card>
-            <q-card class="my-card-s">
+            <q-card :style="isDarkBg" class="my-card-s">
               <q-card-section class="text-h6"> CRM </q-card-section>
             </q-card>
-            <q-card class="my-card-s">
+            <q-card :style="isDarkBg" class="my-card-s">
               <q-card-section class="text-h6"> HR software </q-card-section>
             </q-card>
-            <q-card class="my-card-s">
+            <q-card :style="isDarkBg" class="my-card-s">
               <q-card-section class="text-h6">
                 eLearning software
               </q-card-section>
             </q-card>
-            <q-card class="my-card-s">
+            <q-card  :style="isDarkBg" class="my-card-s">
               <q-card-section class="text-h6"> eCommerce </q-card-section>
             </q-card>
-            <q-card class="my-card-s">
+            <q-card :style="isDarkBg" class="my-card-s">
               <q-card-section class="text-h6"> Mobile Apps </q-card-section>
             </q-card>
-            <q-card class="my-card-s">
+            <q-card :style="isDarkBg" class="my-card-s">
               <q-card-section class="text-h6">
                 Collaboration and productivity solutions
               </q-card-section>
             </q-card>
-            <q-card class="my-card-s">
+            <q-card :style="isDarkBg" class="my-card-s">
               <q-card-section class="text-h6">
                 Fleet management software
               </q-card-section>
             </q-card>
-            <q-card class="my-card-s">
+            <q-card :style="isDarkBg" class="my-card-s">
               <q-card-section class="text-h6"> Data Analytics </q-card-section>
             </q-card>
-            <q-card class="my-card-s">
+            <q-card :style="isDarkBg" class="my-card-s">
               <q-card-section class="text-h6"> Web Portals </q-card-section>
             </q-card>
-            <q-card class="my-card-s">
+            <q-card :style="isDarkBg" class="my-card-s">
               <q-card-section class="text-h6"> ITSM </q-card-section>
             </q-card>
           </div>
@@ -60,8 +60,24 @@
 </template>
 
 <script>
-export default {};
+import { useStore } from "vuex";
+import { ref, computed } from "vue";
+export default {
+  setup() {
+    const $store = useStore();
+    // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBG,
+    });
+
+    return { isDarkBg, isDarkText}
+  },
+};
 </script>
+
 
 <style lang="scss" scoped>
 .allCards {

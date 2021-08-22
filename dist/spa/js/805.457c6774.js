@@ -1,1 +1,0 @@
-"use strict";(self["webpackChunkwayde"]=self["webpackChunkwayde"]||[]).push([[805],{8805:(e,n,a)=>{a.r(n),a.d(n,{default:()=>f});var s=a(3673);function c(e,n,a,c,t,r){const u=(0,s.up)("q-page");return(0,s.wg)(),(0,s.j4)(u,{class:"flex flex-center"})}const t=(0,s.aZ)({name:"PageIndex"});var r=a(4379),u=a(7518),d=a.n(u);t.render=c;const f=t;d()(t,"components",{QPage:r.Z})}}]);

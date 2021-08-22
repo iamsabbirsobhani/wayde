@@ -1,10 +1,10 @@
 <template>
-  <div class="software-dev">
+  <div :style="isDarkBg" class="software-dev">
     <div class="title">
       <h1>Data Analytics</h1>
       <div class="dash"></div>
       <div class="details">
-        <p>
+        <p :style="isDarkText">
           We support businesses in achieving fact-based decision-making by
           converting their historical and real-time, traditional and big data
           into actionable insights. Our services are tailored to make the raw
@@ -15,22 +15,37 @@
     </div>
     <div class="features">
       <ul>
-        <li>Business Intelligence</li>
-        <li>Data Warehousing</li>
-        <li>Data Management</li>
-        <li>Data Analytics as a Service</li>
+        <li :style="isDarkText">Business Intelligence</li>
+        <li :style="isDarkText">Data Warehousing</li>
+        <li :style="isDarkText">Data Management</li>
+        <li :style="isDarkText">Data Analytics as a Service</li>
       </ul>
       <ul>
-        <li>Big Data</li>
-        <li>Data Science</li>
-        <li>Machine and Deep Learning</li>
+        <li :style="isDarkText">Big Data</li>
+        <li :style="isDarkText">Data Science</li>
+        <li :style="isDarkText">Machine and Deep Learning</li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { useStore } from "vuex";
+import { ref, computed } from "vue";
+export default {
+  setup() {
+    const $store = useStore();
+    // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBG,
+    });
+
+    return { isDarkBg, isDarkText}
+  },
+};
 </script>
 
 <style lang="scss" scoped>

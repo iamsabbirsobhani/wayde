@@ -4,19 +4,40 @@
       <img src="../assets/WayedNavIco.png" alt="wayed" />
     </div>
     <div class="left-menu">
-
-      <q-btn class="text-light-blue-13 nav-btn-1" flat @click="scroll('twr')" label="Technology" />
+      <q-toggle
+        @click="darkMode"
+        v-model="first"
+        icon="las la-moon"
+        color="grey-8"
+      />
+      <q-btn
+        class="text-light-blue-13 nav-btn-1"
+        flat
+        @click="scroll('twr')"
+        label="Technology"
+      />
 
       <!-- glowing button -->
       <!-- blue -->
       <!-- <a style="cursor: pointer;" @click="scroll('twr')" class="button blue">Technology</a> -->
       <!-- Yellow -->
-      <a style="cursor: pointer;" @click="scroll('offerings')" class="button yellow nav-btn-yellow">Our Offerings</a>
+      <a
+        style="cursor: pointer"
+        @click="scroll('offerings')"
+        class="button yellow nav-btn-yellow"
+        >Our Offerings</a
+      >
       <!-- White -->
       <!-- <a style="cursor: pointer;" @click="scroll('bcd')" class="button white">Blockchain</a> -->
       <!-- glowing button -->
 
-      <q-btn flat @click="scroll('bcd')" class="text-orange-14 nav-btn-2" label="Blockchain" />
+      <q-btn
+        flat
+        @click="scroll('bcd')"
+        class="text-orange-14 nav-btn-2"
+        label="Blockchain"
+      />
+
       <!-- <q-btn class="btn" color="black" label="Whitepaper" /> -->
     </div>
   </div>
@@ -25,16 +46,22 @@
     <div class="mobile-logo">
       <img src="../assets/WayedNavIco.png" alt="" />
     </div>
+    <q-toggle
+      @click="darkMode"
+      v-model="first"
+      icon="las la-moon"
+      color="grey-8"
+    />
     <div @click="addNavCls" class="header-nav-mobile">
       <div id="menu-toggle" :class="{ active: isTrue, open: isTrue }">
         <div id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span :style="hamStyle"></span>
+          <span :style="hamStyle"></span>
+          <span :style="hamStyle"></span>
         </div>
         <div id="cross">
-          <span></span>
-          <span></span>
+          <span :style="hamStyle"></span>
+          <span :style="hamStyle"></span>
         </div>
       </div>
     </div>
@@ -69,14 +96,9 @@
 
   <div id="myNav" :style="navStyle" class="overlay">
     <!-- Button to close the overlay navigation -->
-
     <!-- Overlay content -->
     <div class="overlay-content">
-      <q-btn
-        @click="scroll('twr')"
-        label="Technology"
-        flat
-      />
+      <q-btn @click="scroll('twr')" :style="navBtn" label="Technology" flat />
       <!-- <q-btn
         class="q-btn"
 
@@ -85,28 +107,20 @@
         label="Technology"
       /> -->
       <!-- style="color: #ff0080" -->
-        <!-- class="bg-deep-orange button yellow" -->
-        <!-- size="20px" -->
-      <q-btn
-        @click="scroll('offerings')"
-        label="Our Offerings"
-        flat
-      />
-        <!-- class="bg-lime-14 q-btn" -->
-        <!-- style="color: white" -->
-      <q-btn
-        @click="scroll('bcd')"
-        label="Blockchain"
-        flat
-      />
-        <!-- class="bg-indigo-10" -->
+      <!-- class="bg-deep-orange button yellow" -->
+      <!-- size="20px" -->
+      <q-btn @click="scroll('offerings')" :style="navBtn" label="Our Offerings" flat />
+      <!-- class="bg-lime-14 q-btn" -->
+      <!-- style="color: white" -->
+      <q-btn @click="scroll('bcd')" :style="navBtn" label="Blockchain" flat />
+      <!-- class="bg-indigo-10" -->
       <q-btn
         @click="scroll('bcc')"
         style="color: black"
         flat
         label="Blockchain cycle"
       />
-        <!-- class="bg-light-blue-5 button blue"
+      <!-- class="bg-light-blue-5 button blue"
         size="20px"
         style="color: white; width: 280px" -->
       <q-btn
@@ -115,56 +129,68 @@
         flat
         style="color: black"
       />
-        <!-- style="color: white"
+      <!-- style="color: white"
         class="bg-green" -->
-      <q-btn
-        @click="scroll('bucws')"
-        label="Cases We Support"
-        flat
-      />
-        <!-- class="bg-red-13" -->
-        <!-- style="color: white" -->
-      <q-btn
-        @click="scroll('bdps')"
-        label="Our Principles"
-        flat
-      />
-        <!-- style="color: white; width: 280px" -->
-        <!-- class="bg-purple button white" -->
-        <!-- size="20px" -->
-      <q-btn
-        @click="scroll('solutions')"
-        flat
-        label="Solution We Deliver"
-      />
-        <!-- class="bg-pink-9" -->
-        <!-- style="color: white" -->
-      <q-btn
-        @click="scroll('contactUs')"
-        label="Contact Us"
-        flat
-      />
+      <q-btn @click="scroll('bucws')" :style="navBtn" label="Cases We Support" flat />
+      <!-- class="bg-red-13" -->
+      <!-- style="color: white" -->
+      <q-btn @click="scroll('bdps')" :style="navBtn" label="Our Principles" flat />
+      <!-- style="color: white; width: 280px" -->
+      <!-- class="bg-purple button white" -->
+      <!-- size="20px" -->
+      <q-btn @click="scroll('solutions')" :style="navBtn" flat label="Solution We Deliver" />
+      <!-- class="bg-pink-9" -->
+      <!-- style="color: white" -->
+      <q-btn @click="scroll('contactUs')" :style="navBtn" label="Contact Us" flat />
     </div>
   </div>
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
+import { useStore } from "vuex";
+import { useMeta } from 'quasar'
+
+let metaData = {
+  // sets document title
+  title: 'Wayde | Code build run',
+  // optional; sets final title as "Index Page - My Website", useful for multiple level meta
+  titleTemplate: title => `${title}`,
+  // meta tags
+  meta: {
+    description: { name: 'theme-color', content: 'rgb(165, 255, 143)'}
+  }
+
+}
 export default {
   name: "MainLayout",
 
   components: {},
 
   setup() {
+    const first = ref(false);
+    const $store = useStore();
     const scrollStyle = ref(null);
+    const hamStyle = ref(null);
+
+
+    const navBtn = computed({
+      get: () => $store.state.navBtn,
+    });
+
 
     const scrl = () => {
       console.log(window.scrollY);
-      if (window.scrollY > 0) {
+      if (window.scrollY > 0 && !first.value) {
         scrollStyle.value = {
           background: "white",
           height: `80px`,
           boxShadow: `0px 2px 10px rgb(12 39 34 / 5%)`,
+        };
+      } else if (first.value) {
+        scrollStyle.value = {
+          boxShadow: "none",
+          background: "black",
         };
       } else {
         scrollStyle.value = {
@@ -204,6 +230,60 @@ export default {
         behavior: "smooth",
       });
     };
+    useMeta(metaData)
+
+    const darkMode = () => {
+      if (first.value) {
+        console.log(first.value);
+        console.log("dark");
+        document.body.style.backgroundColor = "black";
+        document.body.style.color = "white";
+        $store.commit("updateDark", true);
+        $store.commit("updateBg", `black`);
+        $store.commit("updatedarkBgFront", `black`);
+        $store.commit("updateNavBtn", `black`);
+        console.log("Dark Mode: ", $store.state.dark);
+
+        scrollStyle.value = {
+          background: "black",
+          height: `80px`,
+          boxShadow: `0px 2px 10px rgb(12 39 34 / 5%)`,
+        };
+        hamStyle.value = {
+          background: "white",
+        };
+        $store.commit("updateTextColor", `white`);
+      } else {
+        $store.commit("updateBg", `white`);
+        console.log(first.value);
+        document.body.style.backgroundColor = "white";
+        console.log("Light");
+        document.body.style.color = "black";
+        $store.commit("updateDark", false);
+        $store.commit("updateNavBtn", `black`);
+        $store.commit("updatedarkBgFront", `#f0f0f9`);
+        console.log("Dark Mode: ", $store.state.dark);
+          $store.commit("updateTextColor", `black`);
+          hamStyle.value = {
+          background: "black",
+        };
+        if (window.scrollY > 0) {
+
+          scrollStyle.value = {
+            background: "white",
+            height: `80px`,
+            boxShadow: `0px 2px 10px rgb(12 39 34 / 5%)`,
+          };
+        } else {
+          scrollStyle.value = {
+          boxShadow: "none",
+          background: "transparent",
+        };
+        }
+      }
+    };
+
+
 
     return {
       scrollStyle,
@@ -212,6 +292,10 @@ export default {
       addNavCls,
       navStyle,
       scroll,
+      first,
+      darkMode,
+      hamStyle,
+      navBtn
     };
   },
   // methods: {
@@ -225,6 +309,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.spanDarkHamb{
+  background-color: white;
+}
 .navbar {
   position: fixed;
   top: 0;
@@ -287,6 +374,7 @@ export default {
   transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
 
+
 /* Position the content inside the overlay */
 .overlay-content {
   display: flex;
@@ -327,109 +415,190 @@ export default {
   display: none;
 }
 
-
-
-
 // glowing button
 
 /* Blue Shadow */
 @-moz-keyframes blue {
-  0%, 100% {
-    -moz-box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5);
-    box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+  0%,
+  100% {
+    -moz-box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7),
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7),
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
 
   50% {
-    -moz-box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0), inset 0px 0px 0px rgba(255, 255, 255, 0);
-    box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+    -moz-box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+  }
+}
 
 @-webkit-keyframes blue {
-  0%, 100% {
-    -webkit-box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5);
-    box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+  0%,
+  100% {
+    -webkit-box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7),
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7),
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
 
   50% {
-    -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0), inset 0px 0px 0px rgba(255, 255, 255, 0);
-    box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+  }
+}
 
 @-o-keyframes blue {
-  0%, 100% {
-    box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+  0%,
+  100% {
+    box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7),
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
 
   50% {
-    box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+    box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+  }
+}
 
 @keyframes blue {
-  0%, 100% {
-    box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+  0%,
+  100% {
+    box-shadow: 1px 0px 19px 4px rgba(0, 130, 196, 0.7),
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
 
   50% {
-    box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+    box-shadow: 0px 0px 0px 0px rgba(0, 130, 196, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+  }
+}
 
 /* Yellow Shadow */
 @-moz-keyframes yellow {
-  0%, 100% {
-    -moz-box-shadow: 1px 0px 19px 4px #fff503, inset 0px 0px 10px rgba(255, 255, 255, 0.5);
-    box-shadow: 1px 0px 19px 4px #fff503, inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+  0%,
+  100% {
+    -moz-box-shadow: 1px 0px 19px 4px #fff503,
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 0px 19px 4px #fff503,
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
 
   50% {
-    -moz-box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0), inset 0px 0px 0px rgba(255, 255, 255, 0);
-    box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+    -moz-box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+  }
+}
 
 @-webkit-keyframes yellow {
-  0%, 100% {
-    -webkit-box-shadow: 1px 0px 19px 4px #fff503, inset 0px 0px 10px rgba(255, 255, 255, 0.5);
-    box-shadow: 1px 0px 19px 4px #fff503, inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+  0%,
+  100% {
+    -webkit-box-shadow: 1px 0px 19px 4px #fff503,
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 0px 19px 4px #fff503,
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
 
   50% {
-    -webkit-box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0), inset 0px 0px 0px rgba(255, 255, 255, 0);
-    box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+  }
+}
 
 @-o-keyframes yellow {
-  0%, 100% {
-    box-shadow: 1px 0px 19px 4px #fff503, inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+  0%,
+  100% {
+    box-shadow: 1px 0px 19px 4px #fff503,
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
 
   50% {
-    box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+    box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+  }
+}
 
 @keyframes yellow {
-  0%, 100% {
-    box-shadow: 1px 0px 19px 4px #fff503, inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+  0%,
+  100% {
+    box-shadow: 1px 0px 19px 4px #fff503,
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
 
   50% {
-    box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+    box-shadow: 0px 0px 0px 0px rgba(255, 245, 3, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+  }
+}
 
 /* White Shadow */
 @-moz-keyframes white {
-  0%, 100% {
-    -moz-box-shadow: 1px 0px 19px 4px rgba(255, 255, 255, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5);
-    box-shadow: 1px 0px 19px 4px rgba(255, 255, 255, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+  0%,
+  100% {
+    -moz-box-shadow: 1px 0px 19px 4px rgba(255, 255, 255, 0.7),
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 0px 19px 4px rgba(255, 255, 255, 0.7),
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
 
   50% {
-    -moz-box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0), inset 0px 0px 0px rgba(255, 255, 255, 0);
-    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+    -moz-box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+  }
+}
 
 @-webkit-keyframes white {
-  0%, 100% {
-    -webkit-box-shadow: 1px 0px 19px 4px rgba(255, 255, 255, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5);
-    box-shadow: 1px 0px 19px 4px rgba(255, 255, 255, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+  0%,
+  100% {
+    -webkit-box-shadow: 1px 0px 19px 4px rgba(255, 255, 255, 0.7),
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 0px 19px 4px rgba(255, 255, 255, 0.7),
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
 
   50% {
-    -webkit-box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0), inset 0px 0px 0px rgba(255, 255, 255, 0);
-    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+  }
+}
 
 @-o-keyframes white {
-  0%, 100% {
-    box-shadow: 1px 0px 19px 4px rgba(255, 255, 255, 0.7), inset 0px 0px 10px rgba(255, 255, 255, 0.5); }
+  0%,
+  100% {
+    box-shadow: 1px 0px 19px 4px rgba(255, 255, 255, 0.7),
+      inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
 
   50% {
-    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+  }
+}
 
 @keyframes white {
-  0%, 100% {
-    box-shadow: 1px 0px 7px 2px rgba(255, 255, 255, 0.7), inset 0px 0px 6px rgba(255, 255, 255, 0.5); }
+  0%,
+  100% {
+    box-shadow: 1px 0px 7px 2px rgba(255, 255, 255, 0.7),
+      inset 0px 0px 6px rgba(255, 255, 255, 0.5);
+  }
 
   50% {
-    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0), inset 0px 0px 0px rgba(255, 255, 255, 0); } }
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0),
+      inset 0px 0px 0px rgba(255, 255, 255, 0);
+  }
+}
 
 /* Button */
 .button {
@@ -441,7 +610,8 @@ export default {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px 0;
   border-radius: 10px 0;
-  margin-right: 20px; }
+  margin-right: 20px;
+}
 
 /* Blue Background */
 .blue {
@@ -453,7 +623,8 @@ export default {
   -webkit-animation: blue 2s infinite;
   -moz-animation: blue 2s infinite;
   -o-animation: blue 2s infinite;
-  animation: blue 2s infinite; }
+  animation: blue 2s infinite;
+}
 
 /* Yellow Background */
 .yellow {
@@ -465,7 +636,8 @@ export default {
   -webkit-animation: yellow 2s infinite;
   -moz-animation: yellow 2s infinite;
   -o-animation: yellow 2s infinite;
-  animation: yellow 2s infinite; }
+  animation: yellow 2s infinite;
+}
 
 /* White Background */
 .white {
@@ -477,14 +649,14 @@ export default {
   -webkit-animation: white 2s infinite;
   -moz-animation: white 2s infinite;
   -o-animation: white 2s infinite;
-  animation: white 2s infinite; }
+  animation: white 2s infinite;
+}
 
 // glowing button
 
-
 .nav-btn-1 {
   margin-right: 10px;
-  transition: all .24s;
+  transition: all 0.24s;
 }
 
 .nav-btn-1:hover {
@@ -508,7 +680,6 @@ export default {
   transform: scale(1.07);
   box-shadow: 1px 1px 1px 2px #e8ff66;
 }
-
 
 @media (max-width: 768px) {
   .q-btn {

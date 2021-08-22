@@ -3,7 +3,7 @@
     <!-- <div class="lottie"> -->
 
     <div class="q-pa-md row items-start q-gutter-md">
-      <q-card class="my-card" flat bordered>
+      <q-card :style="isDarkBg" class="my-card"  bordered>
         <lottie-player
           src="https://assets3.lottiefiles.com/packages/lf20_bp1bwvhv.json"
           background="transparent"
@@ -16,19 +16,21 @@
         <q-card-section>
           <div class="text-overline text-orange-9">Contact Us</div>
           <div class="text-h5 q-mt-sm q-mb-xs">
-            Get an appointment for Meeting on our Corporate office space at
-            Kochi, The queen of arabian sea
+            Get an appointment for Meeting on our corporate Office space  at
+            Kochi, India.
           </div>
-          <div style="margin-top: 20px;">
+          <div style="margin-top: 20px">
             <h6 class="text-light-green-14">Wayde LLP</h6>
             <address>
-              <br>
-              USA 7th Floor, Centre A <br />
+              <br />
+              7th Floor, Centre A <br />
               Alapatt Heritage Building <br />
               MG Road North End, Ernakulam-682035 <br />
-              Cochin <br/>
-               <br/>
-              <p href="tel:+91-0484-4148299"><i class="las la-phone-volume"></i>+91 0484-4148299</p>
+              Cochin <br />
+              <br />
+              <p href="tel:+91-0484-4148299">
+                <i class="las la-phone-volume"></i>+91 484 4148299
+              </p>
               <p><i class="las la-envelope"></i> helpdesk@wayde.in</p>
             </address>
           </div>
@@ -39,7 +41,8 @@
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
+import { useStore } from "vuex";
+import { ref, onMounted, computed } from "vue";
 export default {
   setup() {
     const windWidth = ref(null);
@@ -58,8 +61,15 @@ export default {
         };
       }
     });
-
-    return { lottieStyle };
+    const $store = useStore();
+    // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBG,
+    });
+    return { lottieStyle, isDarkBg, isDarkText };
   },
 };
 </script>
@@ -74,6 +84,11 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  transition: all .24s;
+}
+.my-card:hover {
+  transform: scale(1.0001);
+  box-shadow: 0 3px 15px -2px;
 }
 .contacts {
   h3 {

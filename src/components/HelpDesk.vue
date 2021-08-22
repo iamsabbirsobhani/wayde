@@ -1,10 +1,10 @@
 <template>
-  <div class="software-dev">
+  <div :style="isDarkBg" class="software-dev">
     <div class="title">
       <h1>Help Desk Services</h1>
       <div class="dash"></div>
       <div class="details">
-        <p>
+        <p :style="isDarkText">
           Help desk services for your IT environment or software products. We
           take on solving diverse issues from answering application
           functionality questions to performing fixes and enhancements on the
@@ -15,21 +15,35 @@
     </div>
     <div class="features">
       <ul>
-        <li>Help desk outsourcing</li>
-        <li>Outsourced help desk for MSP</li>
+        <li :style="isDarkText">Help desk outsourcing</li>
+        <li :style="isDarkText">Outsourced help desk for MSP</li>
       </ul>
       <ul>
-        <li>IT help desk services</li>
-        <li>NOC outsourcing</li>
+        <li :style="isDarkText">IT help desk services</li>
+        <li :style="isDarkText">NOC outsourcing</li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
-</script>
+import { useStore } from "vuex";
+import { ref, computed } from "vue";
+export default {
+  setup() {
+    const $store = useStore();
+    // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBG,
+    });
 
+    return { isDarkBg, isDarkText}
+  },
+};
+</script>
 <style lang="scss" scoped>
 .features {
   display: flex;

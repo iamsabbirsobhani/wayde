@@ -1,17 +1,21 @@
 <template>
-  <div class="frontPage">
-    <div id="radial"></div>
-    <div id="radial2"></div>
+  <div class="frontPage" :style="isDarkBg">
+    <div :class="{ radial: !isDark }"></div>
+    <div :class="{ radial2: !isDark }"></div>
     <div class="deco-bg">
       <img src="../assets/main-deco-bg.png" alt="" />
     </div>
     <div class="front-template">
       <div class="front-typo">
-        <h1>
-          LEADING <strong>BLOCKCHAIN</strong> DEVELOPMENT STARTUP IN INDIA
+        <h1 :style="isDarkText">
+          LEADING
+          <strong :class="{ bstrong: isDark }">BLOCKCHAIN</strong> DEVELOPMENT
+          STARTUP IN INDIA
         </h1>
-        <p>
-          Since 2020. We transform businesses with powerful and adaptable digital solutions that satisfy the needs of today and unlock the opportunities of tomorrow.
+        <p :style="isDarkText">
+          Since 2020. We transform businesses with powerful and adaptable
+          digital solutions that satisfy the needs of today and unlock the
+          opportunities of tomorrow.
         </p>
       </div>
       <div class="front-btn">
@@ -23,7 +27,7 @@
           color="black"
           label="Early access"
         /> -->
-        <TopContactNo/>
+        <!-- <TopContactNo/> -->
       </div>
     </div>
     <q-page-sticky
@@ -46,10 +50,11 @@
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
-import TopContactNo from '../components/TopContactNo.vue'
+import { useStore } from "vuex";
+import { onMounted, ref, computed } from "vue";
+// import TopContactNo from '../components/TopContactNo.vue'
 export default {
-  components: { TopContactNo },
+  components: {},
   setup() {
     const scrl = ref(null);
     const totopStyle = ref({
@@ -57,7 +62,19 @@ export default {
       zIndex: 30,
     });
 
-    const isFade = ref(false)
+    const $store = useStore();
+    // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBgFront,
+    });
+    const isDark = computed({
+      get: () => $store.state.dark,
+    });
+
+    const isFade = ref(false);
 
     let sss = () => {
       scrl.value = window.scrollY;
@@ -83,23 +100,23 @@ export default {
     onMounted(() => {
       window.addEventListener("scroll", sss);
     });
-    return { scrollTop, totopStyle, isFade };
+    return { scrollTop, totopStyle, isFade, isDarkBg, isDarkText, isDark };
   },
 };
 </script>
 
 <style lang="scss" scoped>
 // totop transition
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s ease;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
 }
 
-.fade-enter-from, .fade-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 // totop transition
-
-
 
 .front-template {
   position: relative;
@@ -114,6 +131,7 @@ export default {
     padding: 0;
     line-height: 1.5;
     color: #222;
+    margin-bottom: 20px;
   }
 
   h1 strong {
@@ -130,7 +148,11 @@ export default {
     display: inline-block;
     animation: 0.8s shake infinite alternate;
     background-color: #191c1f;
-    color: #191c1f;
+    // color: #191c1f;
+  }
+
+  .bstrong {
+    background-color: white;
   }
 
   @keyframes shake {
@@ -161,7 +183,7 @@ export default {
     max-width: 600px;
     margin: auto;
     font-size: 18px;
-        color: #394047;
+    color: #394047;
   }
   .front-btn {
     display: flex;
@@ -230,7 +252,7 @@ export default {
   }
 }
 
-#radial {
+.radial {
   z-index: 1;
   position: absolute;
   bottom: 5%;
@@ -259,7 +281,7 @@ export default {
     -webkit-transform: translate(-5%, -25%) scale(1, 1);
   }
 }
-#radial2 {
+.radial2 {
   z-index: 1;
   position: absolute;
   top: 5%;
@@ -322,10 +344,12 @@ export default {
     top: 20px;
     h1 {
       font-size: 30px;
+      width: 310px;
+      margin-bottom: 30px;
     }
     p {
       color: #394047;
-      width: 310px;
+      width: 300px;
       font-size: 17px;
     }
   }

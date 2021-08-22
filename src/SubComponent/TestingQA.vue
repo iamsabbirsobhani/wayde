@@ -1,10 +1,10 @@
 <template>
-  <div class="software-dev">
+  <div :style="isDarkBg" class="software-dev">
     <div class="title">
       <h1>Testing & QA</h1>
       <div class="dash"></div>
       <div class="details">
-        <p>
+        <p :style="isDarkText">
           We offer full-range QA and testing outsourcing services, can help to
           develop your QA or enhance the existing one, assist you in TCoE setup
           and evolution. We perform end-to-end testing of mobile, web and
@@ -14,22 +14,37 @@
     </div>
     <div class="features">
       <ul>
-        <li>QA outsourcing</li>
-        <li>Security testing</li>
-        <li>Usability testing</li>
-        <li>Test automation</li>
+        <li :style="isDarkText">QA outsourcing</li>
+        <li :style="isDarkText">Security testing</li>
+        <li :style="isDarkText">Usability testing</li>
+        <li :style="isDarkText">Test automation</li>
       </ul>
       <ul>
-        <li>QA consulting</li>
-        <li>Functional testing</li>
-        <li>Performance testing</li>
+        <li :style="isDarkText">QA consulting</li>
+        <li :style="isDarkText">Functional testing</li>
+        <li :style="isDarkText">Performance testing</li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { useStore } from "vuex";
+import { ref, computed } from "vue";
+export default {
+  setup() {
+    const $store = useStore();
+    // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBG,
+    });
+
+    return { isDarkBg, isDarkText}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
