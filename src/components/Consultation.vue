@@ -12,21 +12,31 @@
         </p>
         <div class="form-wrapper">
           <form>
-            <input type="text" placeholder="Full Name" name="name" required />
-            <input type="text" placeholder="Company" name="company" required />
-            <input
-              type="email"
-              placeholder="Work Email"
-              name="workemail"
-              required
-            />
-            <input
-              type="number"
-              placeholder="Work Phone"
-              name="workphone"
-              required
-            />
-            <button>DISCUSS MY NEEDS</button>
+            <div>
+              <input type="text" placeholder="Full Name" name="name" required />
+              <input
+                type="text"
+                placeholder="Company"
+                name="company"
+                required
+              />
+              <input
+                type="email"
+                placeholder="Work Email"
+                name="workemail"
+                required
+              />
+              <input
+                type="number"
+                placeholder="Work Phone"
+                name="workphone"
+                required
+              />
+            </div>
+            <div class="quill-editor">
+              <QuillEditor theme="snow" />
+              <button>DISCUSS MY NEEDS</button>
+            </div>
           </form>
         </div>
       </q-card-section>
@@ -35,7 +45,12 @@
 </template>
 
 <script>
+import { QuillEditor } from "@vueup/vue-quill";
+import "@vueup/vue-quill/dist/vue-quill.snow.css";
 export default {
+  components: {
+    QuillEditor,
+  },
   setup() {
     if (
       window.matchMedia &&
@@ -53,14 +68,15 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap");
 
 .consultation-card {
-  max-width: 1150px;
+  max-width: 900px;
   margin: auto;
   margin-top: 150px;
 }
 .consultation-my-card {
   position: relative;
-  height: 600px !important;
+  height: 550px !important;
   background: black;
+  // background: white;
   img {
     position: absolute;
     max-width: 350px;
@@ -73,21 +89,23 @@ export default {
   transform: scale(1.001);
   box-shadow: 0 3px 15px -2px;
   background: rgb(5, 5, 5);
+  // background: rgb(255, 255, 255);
 }
 
 form {
-  width: 300px;
-  margin: auto;
+  width: 650px;
   margin-top: 50px;
   margin-left: 50px;
+  margin: 50px auto;
+  display: flex;
 }
 
 //form to center
 // form {text-align = center; }, input { display: inline-block;}
 
 input {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   height: 50px;
   width: 300px;
   padding-left: 10px;
@@ -146,7 +164,28 @@ button:focus {
   margin-left: 50px;
 }
 
+// .form-wrapper{
+//   display: flex;
+//   // flex-direction: column;
+//   justify-content: space-around;
+// }
+
+.quill-editor {
+  max-width: 400px;
+  max-height: 200px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.contact {
+  margin-left: 50px;
+  width: 400px;
+}
+
 @media (max-width: 500px) {
+  .consultation-my-card {
+    height: 800px !important;
+  }
   .consultation-card {
     width: 320px;
   }
@@ -173,6 +212,7 @@ button:focus {
     margin-left: unset;
     margin-top: 20px;
     text-align: center;
+    flex-direction: column;
   }
   .drop-title {
     margin-top: 20px;
