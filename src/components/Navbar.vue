@@ -168,7 +168,7 @@ export default {
   components: {},
 
   setup() {
-    const first = ref(false);
+    const first = ref(true);
     const $store = useStore();
     const scrollStyle = ref(null);
     const hamStyle = ref(null);
@@ -202,6 +202,7 @@ export default {
 
     onMounted(() => {
       window.addEventListener("scroll", scrl);
+      darkMode();
     });
 
     const isTrue = ref(false);

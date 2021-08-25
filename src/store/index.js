@@ -18,7 +18,7 @@ export default store(function (/* { ssrContext } */) {
       // example
     },
     state: {
-      dark: false,
+      dark: true,
       darkText: {
         color: 'black',
       },
@@ -26,7 +26,7 @@ export default store(function (/* { ssrContext } */) {
         background: 'white'
       },
       darkBgFront: {
-        background: '#f0f0f9'
+        background: '#f0f0f9',
       },
       navBtn: {
         color: 'black'

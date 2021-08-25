@@ -81,7 +81,7 @@ export default {
   border-top-right-radius: 50px;
   padding: 80px;
   width: 100%;
-  box-shadow: 0 2px 15px 1px ;
+  box-shadow: 0 2px 4px 1px ;
 }
 .right {
   display: flex;

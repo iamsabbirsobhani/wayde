@@ -8,6 +8,7 @@
     <ItEco />
     <SolutionsDeliver/>
     <ContactUs/>
+    <Consultation/>
     <Footer />
     <q-page-container>
       <router-view />
@@ -25,6 +26,7 @@ import ContactUs from 'src/components/ContactUs.vue';
 import Blockchain from 'src/components/Blockchain.vue';
 import Clients from 'src/components/Clients.vue';
 import SolutionsDeliver from 'src/components/SolutionsDeliver.vue';
+import Consultation from 'src/components/Consultation.vue';
 export default {
   name: "MainLayout",
 
@@ -38,6 +40,7 @@ export default {
     Blockchain,
     Clients,
     SolutionsDeliver,
+    Consultation
   },
 
   setup() {
