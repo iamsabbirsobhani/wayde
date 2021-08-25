@@ -11,22 +11,31 @@
           Drop us a line! We are here to answer your questions 24/7.
         </p>
         <div class="form-wrapper">
-          <form>
+          <form @submit.prevent="formSubmit">
             <div>
-              <input type="text" placeholder="Full Name" name="name" required />
               <input
+                v-model="fullName"
+                type="text"
+                placeholder="Full Name"
+                name="name"
+                required
+              />
+              <input
+                v-model="company"
                 type="text"
                 placeholder="Company"
                 name="company"
                 required
               />
               <input
+                v-model="workEmail"
                 type="email"
                 placeholder="Work Email"
                 name="workemail"
                 required
               />
               <input
+                v-model="workPhone"
                 type="number"
                 placeholder="Work Phone"
                 name="workphone"
@@ -34,7 +43,12 @@
               />
             </div>
             <div class="quill-editor">
-              <QuillEditor theme="snow" />
+              <QuillEditor
+                placeholder="How can we help you?"
+                contentType="html"
+                v-model:content="qEditor"
+                theme="snow"
+              />
               <button>DISCUSS MY NEEDS</button>
             </div>
           </form>
@@ -47,6 +61,7 @@
 <script>
 import { QuillEditor } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
+import { ref } from "vue";
 export default {
   components: {
     QuillEditor,
@@ -60,6 +75,57 @@ export default {
     } else {
       console.log("light mode");
     }
+
+    // variable
+    const fullName = ref(null);
+    const company = ref(null);
+    const workEmail = ref(null);
+    const workPhone = ref(null);
+    const qEditor = ref(null);
+    // variable
+
+    const formSubmit = async () => {
+      console.log({
+        fullName: fullName.value,
+        company: company.value,
+        workEmail: workEmail.value,
+        workPhone: workPhone.value,
+        quillEditor: qEditor.value,
+      });
+      // console.log(qEditor.value);
+
+      let data = {
+        fullName: fullName.value,
+        company: company.value,
+        workEmail: workEmail.value,
+        workPhone: workPhone.value,
+        quillEditor: `qEditor.value`,
+      };
+
+      try {
+        const res = await fetch("http://127.0.0.1:8000/api/waydes/", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            fullName: fullName.value,
+            company: company.value,
+            workEmail: workEmail.value,
+            workPhone: workPhone.value,
+            quillEditor: `qEditor.value`,
+          }),
+        });
+
+        const resMsg = await res.json();
+
+        console.log("Request succeeded with JSON response", resMsg);
+      } catch (error) {
+        console.log("Request failed", error);
+      }
+    };
+
+    return { formSubmit, fullName, company, workEmail, workPhone, qEditor };
   },
 };
 </script>
