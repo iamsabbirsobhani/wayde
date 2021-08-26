@@ -4,7 +4,7 @@
       <h3>NEED A CONSULTATION?</h3>
       <div class="dash"></div>
     </div>
-    <q-card class="consultation-my-card">
+    <q-card :class="{'consultation-my-card': isDark, 'consultation-my-card2': !isDark}">
       <img src="../assets/main-deco-bg.png" alt="" />
       <q-card-section>
         <p class="drop-title">
@@ -12,15 +12,17 @@
         </p>
         <div class="form-wrapper">
           <form @submit.prevent="formSubmit">
-            <div>
+            <div class="input-wrapper">
               <input
                 v-model="fullName"
                 type="text"
                 placeholder="Full Name"
                 name="name"
                 required
+               :class="{inp: !isDark}"
               />
               <input
+              :class="{inp: !isDark}"
                 v-model="company"
                 type="text"
                 placeholder="Company"
@@ -28,6 +30,7 @@
                 required
               />
               <input
+              :class="{inp: !isDark}"
                 v-model="workEmail"
                 type="email"
                 placeholder="Work Email"
@@ -35,6 +38,7 @@
                 required
               />
               <input
+              :class="{inp: !isDark}"
                 v-model="workPhone"
                 type="number"
                 placeholder="Work Phone"
@@ -43,11 +47,18 @@
               />
             </div>
             <div class="quill-editor">
-              <QuillEditor
+              <!-- <QuillEditor
                 placeholder="How can we help you?"
                 contentType="html"
                 v-model:content="qEditor"
                 theme="snow"
+              /> -->
+              <q-editor
+                style="text-align: start"
+                :dark="isDark"
+                v-model="qEditor"
+                placeholder="How can we help you?"
+                min-height="10rem"
               />
               <button>DISCUSS MY NEEDS</button>
             </div>
@@ -59,22 +70,81 @@
 </template>
 
 <script>
-import { QuillEditor } from "@vueup/vue-quill";
+// import { QuillEditor } from "@vueup/vue-quill";
+import { useQuasar } from "quasar";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useStore } from "vuex";
+
 export default {
-  components: {
-    QuillEditor,
-  },
+  components: {},
   setup() {
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      console.log("dark mode");
-    } else {
-      console.log("light mode");
+    const $store = useStore();
+      // console.log($store.state.darkText)
+    const isDarkText = computed({
+      get: () => $store.state.darkText,
+    });
+    const isDarkBg = computed({
+      get: () => $store.state.darkBG,
+    });
+    const isDark = computed({
+      get: () => $store.state.dark,
+    });
+
+
+
+    const $q = useQuasar();
+    function customBtn(value) {
+      $q.dialog({
+        dark: $store.state.dark,
+        title: "Confirm",
+        message: `${value.fullName}, Your response have been submitted. Thank you.`,
+        ok: {
+          push: true,
+        },
+        // cancel: {
+        //   push: true,
+        //   color: "negative",
+        // },
+        persistent: true,
+      })
+        .onOk(() => {
+          // console.log('>>>> OK')
+        })
+        .onCancel(() => {
+          // console.log('>>>> Cancel')
+        })
+        .onDismiss(() => {
+          // console.log('I am triggered on both OK and Cancel')
+        });
     }
+
+    function alert(value) {
+      $q.dialog({
+        dark: $store.state.dark,
+        title: "Alert",
+        message: `${value}`,
+      })
+        .onOk(() => {
+          // console.log('OK')
+        })
+        .onCancel(() => {
+          // console.log('Cancel')
+        })
+        .onDismiss(() => {
+          // console.log('I am triggered on both OK and Cancel')
+        });
+    }
+
+
+    // if (
+    //   window.matchMedia &&
+    //   window.matchMedia("(prefers-color-scheme: dark)").matches
+    // ) {
+    //   console.log("dark mode");
+    // } else {
+    //   console.log("light mode");
+    // }
 
     // variable
     const fullName = ref(null);
@@ -85,21 +155,12 @@ export default {
     // variable
 
     const formSubmit = async () => {
-      console.log({
-        fullName: fullName.value,
-        company: company.value,
-        workEmail: workEmail.value,
-        workPhone: workPhone.value,
-        quillEditor: qEditor.value,
-      });
-      // console.log(qEditor.value);
-
       let data = {
         fullName: fullName.value,
         company: company.value,
         workEmail: workEmail.value,
         workPhone: workPhone.value,
-        quillEditor: `qEditor.value`,
+        quillEditor: qEditor.value,
       };
 
       try {
@@ -108,24 +169,42 @@ export default {
           headers: {
             "Content-type": "application/json",
           },
-          body: JSON.stringify({
-            fullName: fullName.value,
-            company: company.value,
-            workEmail: workEmail.value,
-            workPhone: workPhone.value,
-            quillEditor: `qEditor.value`,
-          }),
+          body: JSON.stringify(data),
         });
-
         const resMsg = await res.json();
 
-        console.log("Request succeeded with JSON response", resMsg);
+        if (res.status == 201) {
+          customBtn(resMsg);
+        }
+        console.log("Request succeeded with JSON response", resMsg.fullName);
+        console.log("Request succeeded with JSON response", res.status);
+        if (resMsg) {
+          fullName.value = null;
+          company.value = null;
+          workEmail.value = null;
+          workPhone.value = null;
+          qEditor.value = ``;
+        }
       } catch (error) {
         console.log("Request failed", error);
+        fullName.value = null;
+        company.value = null;
+        workEmail.value = null;
+        workPhone.value = null;
+        qEditor.value = ``;
+        alert(`${error}`);
       }
     };
-
-    return { formSubmit, fullName, company, workEmail, workPhone, qEditor };
+    return {
+      formSubmit,
+      fullName,
+      company,
+      workEmail,
+      workPhone,
+      qEditor,
+      customBtn,
+      isDark
+    };
   },
 };
 </script>
@@ -158,8 +237,28 @@ export default {
   // background: rgb(255, 255, 255);
 }
 
+.consultation-my-card2 {
+  position: relative;
+  height: 550px !important;
+  // background: black;
+  background: white;
+  img {
+    position: absolute;
+    max-width: 350px;
+    bottom: 0;
+    right: 0;
+  }
+  transition: all 0.24s;
+}
+.consultation-my-card2:hover {
+  transform: scale(1.001);
+  box-shadow: 0 3px 15px -2px;
+  background: rgb(255, 255, 255);
+  // background: rgb(255, 255, 255);
+}
+
 form {
-  width: 650px;
+  width: 750px;
   margin-top: 50px;
   margin-left: 50px;
   margin: 50px auto;
@@ -186,6 +285,14 @@ input {
 
 input:hover {
   box-shadow: 1px 1px 10px 0.5px white;
+}
+
+.inp{
+  border: 1px solid #5720f2;
+  transition: all 0.1s ease;
+}
+.inp:hover{
+  border: 2px solid #5720f2;
 }
 
 button {
@@ -237,25 +344,42 @@ button:focus {
 // }
 
 .quill-editor {
-  max-width: 400px;
-  max-height: 200px;
-  margin-left: 20px;
+  max-width: 500px;
+  // max-height: 200px;
+  // margin-left: 20px;
   margin-top: 20px;
+  text-align: center;
 }
-
 .contact {
   margin-left: 50px;
   width: 400px;
 }
 
+.input-wrapper {
+  width: 350px;
+}
 @media (max-width: 500px) {
+  .input-wrapper {
+    width: 285px;
+  }
   .consultation-my-card {
+    height: 800px !important;
+  }
+  .consultation-my-card2 {
     height: 800px !important;
   }
   .consultation-card {
     width: 320px;
   }
   .consultation-my-card {
+    img {
+      position: absolute;
+      max-width: 280px;
+      bottom: 0;
+      right: 0;
+    }
+  }
+  .consultation-my-card2 {
     img {
       position: absolute;
       max-width: 280px;
@@ -283,6 +407,9 @@ button:focus {
   .drop-title {
     margin-top: 20px;
     margin-left: unset;
+  }
+  .quill-editor {
+    max-width: 290px;
   }
 }
 </style>
