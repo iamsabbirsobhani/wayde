@@ -230,6 +230,7 @@ export default {
   }
   transition: all 0.24s;
 }
+
 .consultation-my-card:hover {
   transform: scale(1.001);
   box-shadow: 0 3px 15px -2px;
@@ -250,6 +251,7 @@ export default {
   }
   transition: all 0.24s;
 }
+
 .consultation-my-card2:hover {
   transform: scale(1.001);
   box-shadow: 0 3px 15px -2px;
@@ -291,6 +293,7 @@ input:hover {
   border: 1px solid #5720f2;
   transition: all 0.1s ease;
 }
+
 .inp:hover{
   border: 2px solid #5720f2;
 }
@@ -350,6 +353,7 @@ button:focus {
   margin-top: 20px;
   text-align: center;
 }
+
 .contact {
   margin-left: 50px;
   width: 400px;
@@ -358,6 +362,7 @@ button:focus {
 .input-wrapper {
   width: 350px;
 }
+
 @media (max-width: 500px) {
   .input-wrapper {
     width: 285px;

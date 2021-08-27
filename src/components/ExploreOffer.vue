@@ -59,7 +59,8 @@
 
   <!-- Accordion -->
   <div class="q-pa-md accordion">
-    <q-list bordered class="bg-white">
+    <OfferingsSlide/>
+    <!-- <q-list bordered class="bg-white">
       <q-expansion-item
         icon="las la-code"
         label="Software Development"
@@ -197,7 +198,7 @@
           </q-card-section>
         </q-card>
       </q-expansion-item>
-    </q-list>
+    </q-list> -->
   </div>
   <!-- Accordion -->
 </template>
@@ -211,6 +212,7 @@ import UXUI from "./UXUI.vue";
 import DataAnalytics from "src/SubComponent/DataAnalytics.vue";
 import InfrastructureServices from "src/SubComponent/InfrastructureServices.vue";
 import CybersecurityServices from "src/SubComponent/CybersecurityServices.vue";
+import OfferingsSlide from "src/SubComponent/OfferingsSlide.vue";
 import HelpDesk from "./HelpDesk.vue";
 import { useStore } from "vuex"
 export default {
@@ -223,6 +225,7 @@ export default {
     HelpDesk,
     InfrastructureServices,
     CybersecurityServices,
+    OfferingsSlide
   },
   setup() {
     const softDevActive = ref(true);
