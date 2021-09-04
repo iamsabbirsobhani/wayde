@@ -380,7 +380,7 @@ export default {
 .card {
   margin: auto;
   margin-top: 100px;
-  max-width: 1150px;
+  max-width: 800px;
 }
 .exploare-offer {
   display: flex;

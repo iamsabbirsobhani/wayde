@@ -1,5 +1,5 @@
 <template>
-  <div class="consultation-card">
+  <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" class="consultation-card">
     <div class="bdc-subtitle">
       <h3>NEED A CONSULTATION?</h3>
       <div class="dash"></div>
@@ -73,8 +73,9 @@
 // import { QuillEditor } from "@vueup/vue-quill";
 import { useQuasar } from "quasar";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useStore } from "vuex";
+import AOS from "aos";
 
 export default {
   components: {},
@@ -195,6 +196,10 @@ export default {
         alert(`${error}`);
       }
     };
+    onMounted(() => {
+      // AOS.init();
+    })
+
     return {
       formSubmit,
       fullName,

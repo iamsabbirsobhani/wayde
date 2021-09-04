@@ -39,7 +39,7 @@
       </div>
       <div class="getin">
         <h3>Get in Touch</h3>
-        <p>helpdesk@wayde.in</p>
+        <p>contact@wayde.in</p>
       </div>
     </div>
   </div>

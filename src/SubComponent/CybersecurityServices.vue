@@ -5,8 +5,7 @@
       <div class="dash"></div>
       <div class="details">
         <p :style="isDarkText">
-          Equipped with experience in information security and employing ISO
-          27001 certified information security management practices, we help to
+          We help to
           achieve the robust protection of the companies’ applications and
           networks.
         </p>
@@ -53,12 +52,12 @@ export default {
   display: flex;
 }
 .software-dev {
-  width: 400px;
-  margin-left: 50%;
+  width: 350px;
+  margin-left: 10%;
 }
 .title {
   h1 {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 500;
   }
   p {

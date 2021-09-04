@@ -31,7 +31,7 @@
               <p href="tel:+91-0484-4148299">
                 <i class="las la-phone-volume"></i>+91 484 4148299
               </p>
-              <p><i class="las la-envelope"></i> helpdesk@wayde.in</p>
+              <p><i class="las la-envelope"></i> contact@wayde.in</p>
             </address>
           </div>
         </q-card-section>

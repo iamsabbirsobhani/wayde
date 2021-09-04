@@ -146,6 +146,9 @@
         <q-card-section class="bdp-card-flex">
           <div>
             <lottie-player
+              data-aos="fade-right"
+              data-aos-offset="150"
+              data-aos-easing="ease-in-sine"
               src="https://assets3.lottiefiles.com/packages/lf20_m9zragkd.json"
               background="transparent"
               speed="1"
@@ -161,10 +164,7 @@
             <div class="dash"></div>
             <div>
               <p :style="isDarkText">
-                We devise a strategy to prevent governance, process, and
-                technology risks in compliance with
-                <strong>GDPR, HIPAA, PSI/DSS, AML, ISO 27001/27002,</strong>
-                and other security standards. We also enforce policies to
+                We devise a strategy to prevent governance and process. We also enforce policies to
                 confirm transaction validity, implement authorization controls
                 for APIs, set up privileged access management, and implement
                 other security-boosting strategies.
@@ -176,7 +176,9 @@
 
       <q-card :style="isDarkBg" class="my-card-bdp" >
         <q-card-section class="bdp-card-flex">
-          <img src="../assets/our-principles_guaranteed-roi.svg" alt="" />
+          <img data-aos="fade-right"
+              data-aos-offset="200"
+              data-aos-easing="ease-in-sine" src="../assets/our-principles_guaranteed-roi.svg" alt="" />
           <div class="bdc-subtitle">
             <h3 style="color: #1c8eff">Guaranteed ROI</h3>
             <div class="dash"></div>

@@ -5,7 +5,7 @@
     <div class="deco-bg">
       <img src="../assets/main-deco-bg.png" alt="" />
     </div>
-    <div class="front-template">
+    <div data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" class="front-template">
       <div class="front-typo">
         <h1 :style="isDarkText">
           LEADING
@@ -122,7 +122,7 @@ export default {
   position: relative;
   top: 0;
   z-index: 11;
-  max-width: 1300px;
+  max-width: 900px;
   margin: auto;
   h1 {
     text-align: center;

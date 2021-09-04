@@ -53,12 +53,12 @@ export default {
 }
 .software-dev {
   margin-top: 20px;
-  width: 500px;
-  margin-left: 50%;
+  width: 350px;
+  margin-left: 10%;
 }
 .title {
   h1 {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 500;
   }
   p {

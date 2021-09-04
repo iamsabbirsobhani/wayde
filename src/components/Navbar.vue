@@ -34,7 +34,7 @@
       <q-btn
         flat
         @click="scroll('bcd')"
-        class="text-orange-14 nav-btn-2"
+        class="text-light-blue-13 nav-btn-1"
         label="Blockchain"
       />
 
@@ -227,9 +227,11 @@ export default {
       navStyle.value = {
         height: `0%`,
       };
-      document.getElementById(id).scrollIntoView({
-        behavior: "smooth",
-      });
+      setTimeout(() => {
+        document.getElementById(id).scrollIntoView({
+          behavior: "smooth",
+        });
+      }, 50);
     };
     useMeta(metaData)
 
