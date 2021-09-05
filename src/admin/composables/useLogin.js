@@ -10,7 +10,6 @@ const login = async (email, password) => {
 
     try{
         const res = await projectAuth.signInWithEmailAndPassword(email, password)
-
         error.value = null
 
         loading.value = false

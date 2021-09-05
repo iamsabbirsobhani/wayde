@@ -7,4 +7,7 @@ import 'aos/dist/aos.css'
 // more info on params: https://v2.quasar.dev/quasar-cli/boot-files
 export default boot(({ app }) => {
     app.use(AOS.init());
+    // app.mount('#q-app')
+    // app.mount();
+
 })

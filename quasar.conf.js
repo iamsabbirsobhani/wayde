@@ -97,7 +97,8 @@ module.exports = configure(function (ctx) {
       // Quasar plugins
       plugins: [
         'Dialog',
-        'Meta'
+        'Meta',
+        'Notify'
       ]
     },
 

@@ -101,9 +101,72 @@
 </template>
 
 <script>
-
-
+import { useQuasar } from "quasar";
+import useLogin from "../composables/useLogin";
+import { ref } from 'vue'
+import { useRouter } from "vue-router";
 export default {
+  setup() {
+    const { login, error, loading } = useLogin();
+    const email = ref(null);
+    const password = ref(null);
+    const isPwd = ref(true);
+    const accept = ref(false);
+    const $q = useQuasar();
+    const router = useRouter()
+    const handleLogin = async () => {
+      let res = await login(email.value, password.value);
+      if (!error.value) {
+        console.log("User logged in");
+        $q.notify({
+          color: "green-4",
+          textColor: "white",
+          icon: "face",
+          message: "Logged in",
+        });
+        email.value = null;
+        password.value = null;
+        accept.value = false;
+        router.push({name: 'AdminHome'})
+      }
+    };
+
+    // signin notify
+    const onSubmit = () => {
+      if (accept.value !== true) {
+        console.log("You need to accept the license and terms first")
+        $q.notify({
+          color: "red-5",
+          textColor: "white",
+          icon: "warning",
+          message: "You need to accept the license and terms first",
+        });
+      } else {
+        handleLogin();
+      }
+    };
+    const onReset = () => {
+      email.value = null;
+      password.value = null;
+      accept.value = false;
+    };
+    // end of signup notify
+    const closeBanner = () => {
+      error.value = null;
+    };
+
+    return {
+      email,
+      password,
+      isPwd,
+      accept,
+      onSubmit,
+      onReset,
+      error,
+      closeBanner,
+      loading
+    }
+  },
 };
 </script>
 
@@ -123,7 +186,7 @@ img {
 // admin-left
 .my-card {
   margin: 10px auto;
-  max-width: 600px;
+  width: 500px;
   border-radius: 12px;
 }
 .text-h6 {
@@ -146,11 +209,11 @@ img {
 }
 @media (max-width: 400px) {
   .admin {
-      margin-top: 50px;
+    margin-top: 50px;
     justify-content: center;
   }
   .my-card {
-    width: 290px;
+    width: 340px;
     padding: 4px 4px;
   }
   .my-form {
