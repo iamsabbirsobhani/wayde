@@ -40,11 +40,15 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 export default {
   setup () {
     const leftDrawerOpen = ref(false)
+
+    onMounted(() => {
+      document.body.style.backgroundColor = "white";
+    })
 
     return {
       leftDrawerOpen,

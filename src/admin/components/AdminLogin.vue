@@ -104,7 +104,7 @@
 <script>
 import { useQuasar } from "quasar";
 import useLogin from "../composables/useLogin";
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from "vue-router";
 export default {
   setup() {
@@ -155,6 +155,9 @@ export default {
     const closeBanner = () => {
       error.value = null;
     };
+    onMounted(() => {
+      document.body.style.backgroundColor = "white";
+    })
 
     return {
       email,
