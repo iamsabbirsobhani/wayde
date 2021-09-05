@@ -16,6 +16,7 @@
                 color="primary"
                 icon="fab fa-twitter"
               /> -->
+
               <img
                 style="width: 200px"
                 src="../../assets/WayedNavIco.png"
