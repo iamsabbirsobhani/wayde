@@ -37,12 +37,6 @@
         class="text-light-blue-13 nav-btn-1"
         label="Blockchain"
       />
-      <q-btn
-        flat
-        @click="goAdmin"
-        class="text-light-blue-13 nav-btn-1"
-        label="Admin"
-      />
 
       <!-- <q-btn class="btn" color="black" label="Whitepaper" /> -->
     </div>
@@ -156,7 +150,6 @@
 import { ref, onMounted, computed } from "vue";
 import { useStore } from "vuex";
 import { useMeta } from 'quasar'
-import { useRouter } from "vue-router";
 
 let metaData = {
   // sets document title
@@ -292,11 +285,9 @@ export default {
         }
       }
     };
-    const router = useRouter()
 
-  const goAdmin = () => {
-    router.push({name: "AdminLogin"})
-  }
+
+
 
     return {
       scrollStyle,
@@ -309,7 +300,7 @@ export default {
       darkMode,
       hamStyle,
       navBtn,
-      goAdmin
+
     };
   },
   // methods: {

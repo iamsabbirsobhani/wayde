@@ -28,7 +28,7 @@
           </q-item>
 
           <q-card-section>
-            <div class="text-h6">Admin Log in</div>
+            <div class="text-h6" style="color:black;">Admin Log in</div>
           </q-card-section>
 
           <q-card-section>
@@ -74,7 +74,7 @@
           </q-card-section>
 
           <q-card-section>
-            <q-toggle v-model="accept" label="I accept the license and terms" />
+            <q-toggle style="color: black;" color="primary" keep-color v-model="accept" label="I accept the license and terms" />
 
             <div class="q-py-md">
               <q-btn

@@ -6,7 +6,7 @@
         You don’t want to miss the news on Wayde. Subscribe - we’ll only send
         updates on our launch.
       </p>
-      <form @submit.prevent="">
+      <form @submit.prevent="onSubmit">
         <q-input
           class="inp"
           outlined
@@ -14,6 +14,7 @@
           type="email"
           required
           :dark="isDark"
+          v-model="email"
         />
         <q-btn
           class="btn"
@@ -40,6 +41,7 @@
       <div class="getin">
         <h3>Get in Touch</h3>
         <p>contact@wayde.in</p>
+        <q-btn flat  label="Admin" @click="goAdmin" />
       </div>
     </div>
   </div>
@@ -53,10 +55,15 @@
 </template>
 
 <script>
+import useConsultation from "../admin/composables/useConsultation";
+import { pageVisited } from "../admin/composables/pageVisited.js";
+import { useRouter } from "vue-router";
+
 import { useStore } from "vuex";
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 export default {
   setup() {
+    const router = useRouter();
     const $store = useStore();
     // console.log($store.state.darkText)
     const isDarkText = computed({
@@ -68,8 +75,25 @@ export default {
     const isDark = computed({
       get: () => $store.state.dark,
     });
+    const { postConsultation, error } = useConsultation("subscribers");
 
-    return { isDarkBg, isDarkText, isDark}
+    const email = ref(null);
+    const onSubmit = async () => {
+      console.log(email.value);
+      const doc = {
+        email: email.value,
+      };
+      await postConsultation(doc);
+      email.value = null;
+    };
+
+    onMounted(async () => {
+      await pageVisited();
+    });
+    const goAdmin = () => {
+      router.push({ name: "AdminLogin" });
+    };
+    return { isDarkBg, isDarkText, isDark, onSubmit, email, goAdmin };
   },
 };
 </script>
@@ -84,7 +108,7 @@ export default {
   border-top-right-radius: 50px;
   padding: 80px;
   width: 100%;
-  box-shadow: 0 2px 4px 1px ;
+  box-shadow: 0 2px 4px 1px;
 }
 .right {
   display: flex;

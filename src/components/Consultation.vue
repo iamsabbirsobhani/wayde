@@ -1,10 +1,22 @@
 <template>
-  <div data-aos="fade-right" data-aos-delay="50" data-aos-duration="500" data-aos-offset="300" data-aos-easing="ease-in-sine" class="consultation-card">
+  <div
+    data-aos="fade-right"
+    data-aos-delay="50"
+    data-aos-duration="500"
+    data-aos-offset="300"
+    data-aos-easing="ease-in-sine"
+    class="consultation-card"
+  >
     <div class="bdc-subtitle">
       <h3>NEED A CONSULTATION?</h3>
       <div class="dash"></div>
     </div>
-    <q-card :class="{'consultation-my-card': isDark, 'consultation-my-card2': !isDark}">
+    <q-card
+      :class="{
+        'consultation-my-card': isDark,
+        'consultation-my-card2': !isDark,
+      }"
+    >
       <img src="../assets/main-deco-bg.png" alt="" />
       <q-card-section>
         <p class="drop-title">
@@ -19,10 +31,10 @@
                 placeholder="Full Name"
                 name="name"
                 required
-               :class="{inp: !isDark}"
+                :class="{ inp: !isDark }"
               />
               <input
-              :class="{inp: !isDark}"
+                :class="{ inp: !isDark }"
                 v-model="company"
                 type="text"
                 placeholder="Company"
@@ -30,7 +42,7 @@
                 required
               />
               <input
-              :class="{inp: !isDark}"
+                :class="{ inp: !isDark }"
                 v-model="workEmail"
                 type="email"
                 placeholder="Work Email"
@@ -38,7 +50,7 @@
                 required
               />
               <input
-              :class="{inp: !isDark}"
+                :class="{ inp: !isDark }"
                 v-model="workPhone"
                 type="number"
                 placeholder="Work Phone"
@@ -73,6 +85,7 @@
 // import { QuillEditor } from "@vueup/vue-quill";
 import { useQuasar } from "quasar";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
+import useConsultation from "../admin/composables/useConsultation";
 import { ref, computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import AOS from "aos";
@@ -81,7 +94,7 @@ export default {
   components: {},
   setup() {
     const $store = useStore();
-      // console.log($store.state.darkText)
+    // console.log($store.state.darkText)
     const isDarkText = computed({
       get: () => $store.state.darkText,
     });
@@ -92,7 +105,7 @@ export default {
       get: () => $store.state.dark,
     });
 
-
+    const { postConsultation, error } = useConsultation("consultation");
 
     const $q = useQuasar();
     function customBtn(value) {
@@ -137,7 +150,6 @@ export default {
         });
     }
 
-
     // if (
     //   window.matchMedia &&
     //   window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -164,41 +176,66 @@ export default {
         quillEditor: qEditor.value,
       };
 
-      try {
-        const res = await fetch("http://127.0.0.1:8000/api/waydes/", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
+      if (error) {
+        await postConsultation(data);
+        // alert(`Succeed! Thank you, we will get back to you very soon.`);
+        $q.dialog({
+          dark: $store.state.dark,
+          title: "Confirm",
+          message: `Your response have been submitted. Thank you.`,
+          ok: {
+            push: true,
           },
-          body: JSON.stringify(data),
+          // cancel: {
+          //   push: true,
+          //   color: "negative",
+          // },
+          persistent: true,
         });
-        const resMsg = await res.json();
-
-        if (res.status == 201) {
-          customBtn(resMsg);
-        }
-        console.log("Request succeeded with JSON response", resMsg.fullName);
-        console.log("Request succeeded with JSON response", res.status);
-        if (resMsg) {
-          fullName.value = null;
-          company.value = null;
-          workEmail.value = null;
-          workPhone.value = null;
-          qEditor.value = ``;
-        }
-      } catch (error) {
-        console.log("Request failed", error);
         fullName.value = null;
         company.value = null;
         workEmail.value = null;
         workPhone.value = null;
         qEditor.value = ``;
+      } else {
         alert(`${error}`);
       }
+
+      // try {
+      //   const res = await fetch("http://127.0.0.1:8000/api/waydes/", {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-type": "application/json",
+      //     },
+      //     body: JSON.stringify(data),
+      //   });
+      //   const resMsg = await res.json();
+
+      //   if (res.status == 201) {
+      //     customBtn(resMsg);
+      //   }
+      //   console.log("Request succeeded with JSON response", resMsg.fullName);
+      //   console.log("Request succeeded with JSON response", res.status);
+      //   if (resMsg) {
+      //     fullName.value = null;
+      //     company.value = null;
+      //     workEmail.value = null;
+      //     workPhone.value = null;
+      //     qEditor.value = ``;
+      //   }
+      // } catch (error) {
+      //   console.log("Request failed", error);
+      //   fullName.value = null;
+      //   company.value = null;
+      //   workEmail.value = null;
+      //   workPhone.value = null;
+      //   qEditor.value = ``;
+      //   alert(`${error}`);
+      // }
     };
     onMounted(() => {
       // AOS.init();
-    })
+    });
 
     return {
       formSubmit,
@@ -208,7 +245,7 @@ export default {
       workPhone,
       qEditor,
       customBtn,
-      isDark
+      isDark,
     };
   },
 };
@@ -294,12 +331,12 @@ input:hover {
   box-shadow: 1px 1px 10px 0.5px white;
 }
 
-.inp{
+.inp {
   border: 1px solid #5720f2;
   transition: all 0.1s ease;
 }
 
-.inp:hover{
+.inp:hover {
   border: 2px solid #5720f2;
 }
 
