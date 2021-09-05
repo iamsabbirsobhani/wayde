@@ -1,5 +1,5 @@
 <template>
-  <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" class="consultation-card">
+  <div data-aos="fade-right" data-aos-delay="50" data-aos-duration="500" data-aos-offset="300" data-aos-easing="ease-in-sine" class="consultation-card">
     <div class="bdc-subtitle">
       <h3>NEED A CONSULTATION?</h3>
       <div class="dash"></div>

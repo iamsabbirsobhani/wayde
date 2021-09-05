@@ -8,7 +8,7 @@
       <div class="bds-img">
         <img src="../assets/bds-new.webp" alt="" />
       </div>
-      <div class="bdc-intro" >
+      <div class="bdc-intro">
         <p :style="isDarkText">
           Blockchain development services aim at creating decentralized
           blockchain networks that allow for establishing new business models
@@ -29,13 +29,13 @@
     </div>
 
     <!-- BLOCKCHAIN SOLUTIONS WE DELIVER -->
-    <div id="bswd" class="bswd" >
+    <div id="bswd" class="bswd">
       <div class="bdc-subtitle">
         <h3>BLOCKCHAIN SOLUTIONS WE DELIVER</h3>
         <div class="dash"></div>
       </div>
       <div class="bswd-card">
-          <!-- style="overflow: auto" -->
+        <!-- style="overflow: auto" -->
         <q-card
           :style="isDarkBg"
           class="my-card-bswd"
@@ -60,15 +60,15 @@
     <!-- BLOCKCHAIN SOLUTIONS WE DELIVER -->
 
     <!-- BLOCKCHAIN USE CASES WE SUPPORT -->
-    <div class="bucws" id="bucws" >
+    <div class="bucws" id="bucws">
       <div class="bdc-subtitle">
         <h3>BLOCKCHAIN USE CASES WE SUPPORT</h3>
         <div class="dash"></div>
       </div>
       <div class="bucws-card">
-          <!-- style="overflow: auto" -->
+        <!-- style="overflow: auto" -->
         <q-card
-        :style="isDarkBg"
+          :style="isDarkBg"
           class="my-card-bucws"
           v-for="it in bucwss"
           :key="it"
@@ -94,10 +94,10 @@
         <div class="dash"></div>
       </div>
 
-          <!-- style="overflow: auto" -->
+      <!-- style="overflow: auto" -->
       <div class="cyso-card">
         <q-card
-        :style="isDarkBg"
+          :style="isDarkBg"
           class="my-card-cyso"
           v-for="item in cyso"
           :key="item"
@@ -107,7 +107,7 @@
           </q-card-section>
           <q-card-section>
             <ul v-for="list in item.lists" :key="list">
-              <li  :style="isDarkText">{{ list }}</li>
+              <li :style="isDarkText">{{ list }}</li>
             </ul>
           </q-card-section>
         </q-card>
@@ -123,7 +123,12 @@
       </div>
 
       <div class="twr-card">
-        <q-card :style="isDarkBg"  v-if="verticalPanel" class="my-card-twr" style="overflow: auto">
+        <q-card
+          :style="isDarkBg"
+          v-if="verticalPanel"
+          class="my-card-twr"
+          style="overflow: auto"
+        >
           <q-card-section>
             <!-- <div class="text-h6">{{ item.title }}</div> -->
           </q-card-section>
@@ -147,8 +152,10 @@
           <div>
             <lottie-player
               data-aos="fade-right"
-              data-aos-offset="150"
+              data-aos-offset="200"
+              data-aos-delay="50"
               data-aos-easing="ease-in-sine"
+              data-aos-duration="1000"
               src="https://assets3.lottiefiles.com/packages/lf20_m9zragkd.json"
               background="transparent"
               speed="1"
@@ -164,21 +171,27 @@
             <div class="dash"></div>
             <div>
               <p :style="isDarkText">
-                We devise a strategy to prevent governance and process. We also enforce policies to
-                confirm transaction validity, implement authorization controls
-                for APIs, set up privileged access management, and implement
-                other security-boosting strategies.
+                We devise a strategy to prevent governance and process. We also
+                enforce policies to confirm transaction validity, implement
+                authorization controls for APIs, set up privileged access
+                management, and implement other security-boosting strategies.
               </p>
             </div>
           </div>
         </q-card-section>
       </q-card>
 
-      <q-card :style="isDarkBg" class="my-card-bdp" >
+      <q-card :style="isDarkBg" class="my-card-bdp">
         <q-card-section class="bdp-card-flex">
-          <img data-aos="fade-right"
-              data-aos-offset="200"
-              data-aos-easing="ease-in-sine" src="../assets/our-principles_guaranteed-roi.svg" alt="" />
+          <img
+            data-aos="fade-right"
+            data-aos-offset="200"
+            data-aos-delay="50"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="500"
+            src="../assets/our-principles_guaranteed-roi.svg"
+            alt=""
+          />
           <div class="bdc-subtitle">
             <h3 style="color: #1c8eff">Guaranteed ROI</h3>
             <div class="dash"></div>
@@ -229,9 +242,8 @@ import { useStore } from "vuex";
 export default {
   components: { TabPanelBlockchain, TabPanel, TimelineBlockchains },
   setup() {
-
     const $store = useStore();
-      // console.log($store.state.darkText)
+    // console.log($store.state.darkText)
     const isDarkText = computed({
       get: () => $store.state.darkText,
     });
@@ -360,7 +372,7 @@ export default {
       cyso,
       verticalPanel,
       isDarkText,
-      isDarkBg
+      isDarkBg,
     };
   },
 };
@@ -527,10 +539,9 @@ export default {
   margin: 10px;
   border-top: 10px solid #68b800;
   transition: all 0.24s;
-
 }
 
-.my-card-twr:hover{
+.my-card-twr:hover {
   transform: scale(1.0001);
   box-shadow: 0 3px 15px -2px;
 }
@@ -573,11 +584,11 @@ export default {
   }
 }
 
-.my-card-bdp{
+.my-card-bdp {
   margin-top: 100px;
   transition: all 0.24s;
 }
-.my-card-bdp:hover{
+.my-card-bdp:hover {
   transform: scale(1.0001);
   box-shadow: 0 3px 15px -2px;
 }

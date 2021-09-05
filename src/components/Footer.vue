@@ -13,6 +13,7 @@
           label="Enter your email"
           type="email"
           required
+          :dark="isDark"
         />
         <q-btn
           class="btn"
@@ -21,6 +22,7 @@
           no-wrap
           color="black"
           label="Get updates"
+          dark
         />
       </form>
     </div>
@@ -30,12 +32,10 @@
         <p>Twitter</p>
         <p>Medium</p>
         <p>Telegram</p>
-        <p>GitHub</p>
       </div>
       <div class="lossless">
         <h3>Wayde</h3>
         <p>Technology</p>
-        <p>Whitepaper</p>
       </div>
       <div class="getin">
         <h3>Get in Touch</h3>
@@ -65,8 +65,11 @@ export default {
     const isDarkBg = computed({
       get: () => $store.state.darkBG,
     });
+    const isDark = computed({
+      get: () => $store.state.dark,
+    });
 
-    return { isDarkBg, isDarkText}
+    return { isDarkBg, isDarkText, isDark}
   },
 };
 </script>
@@ -119,9 +122,12 @@ export default {
   .btn {
     width: 150px;
     margin-left: 20px;
+    border: 2px solid white;
+    transition: all 0.24s;
   }
   .btn:hover {
-    background: #399cc2 !important;
+    background: #ffffff !important;
+    color: black !important;
   }
   .inp {
     width: 250px;
@@ -153,6 +159,7 @@ export default {
       width: 500px;
       margin-left: unset;
       margin-top: 20px;
+      border: 2px solid white;
     }
     .inp {
       width: 500px;
