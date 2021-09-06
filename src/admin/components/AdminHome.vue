@@ -84,7 +84,7 @@
 
           <q-card-section>
             <div class="text-overline text-orange-9">Wayde.in</div>
-            <div class="text-h5 q-mt-sm q-mb-xs">Welcome to Wayde Admin Panel</div>
+            <div class="text-h5 q-mt-sm q-mb-xs text-black">Welcome to Wayde Admin Panel</div>
             <div class="text-caption text-grey">
               Code Build Run
             </div>
