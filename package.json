@@ -15,6 +15,8 @@
     "@vueup/vue-quill": "^1.0.0-beta.7",
     "aos": "^2.3.4",
     "core-js": "^3.6.5",
+    "date-fns": "^2.23.0",
+    "firebase": "^8.10.0",
     "quasar": "^2.0.0",
     "vue3-carousel": "^0.1.25",
     "vuex": "^4.0.1"

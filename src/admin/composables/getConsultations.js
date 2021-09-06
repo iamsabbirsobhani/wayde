@@ -11,13 +11,13 @@ const getConsultations = () => {
     const loading = ref(false)
     // type.value = null
     let collectionRef = projectFirestore.collection('consultation')
-    // .orderBy('createdAt', 'asc')
+    .orderBy('createdAt', 'desc')
         loading.value = true;
         collectionRef.onSnapshot((snap) => {
             let results = []
             // console.log('snapshot')
             snap.docs.forEach(doc => {
-                // doc.data().createdAt &&
+                doc.data().createdAt &&
                  results.push({
                     ...doc.data(),
                     id: doc.id

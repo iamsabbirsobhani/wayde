@@ -58,6 +58,7 @@
 import useConsultation from "../admin/composables/useConsultation";
 import { pageVisited } from "../admin/composables/pageVisited.js";
 import { useRouter } from "vue-router";
+import {timestamp} from "../firebase/config"
 
 import { useStore } from "vuex";
 import { ref, computed, onMounted } from "vue";
@@ -82,6 +83,8 @@ export default {
       console.log(email.value);
       const doc = {
         email: email.value,
+        done: false,
+        createdAt: timestamp()
       };
       await postConsultation(doc);
       email.value = null;

@@ -88,6 +88,8 @@ import "@vueup/vue-quill/dist/vue-quill.snow.css";
 import useConsultation from "../admin/composables/useConsultation";
 import { ref, computed, onMounted } from "vue";
 import { useStore } from "vuex";
+// import {timestamp} from '../../firebase/config'
+import {timestamp} from "../firebase/config"
 import AOS from "aos";
 
 export default {
@@ -174,6 +176,8 @@ export default {
         workEmail: workEmail.value,
         workPhone: workPhone.value,
         quillEditor: qEditor.value,
+        done: false,
+        createdAt: timestamp()
       };
 
       if (error) {

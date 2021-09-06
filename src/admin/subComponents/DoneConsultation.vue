@@ -32,19 +32,14 @@
     </q-card> -->
 
     <div v-for="data in formatedConsultation" :key="data">
-      <div v-if="!data.done">
-        <q-card
-          class="my-card-subs"
-          flat
-          bordered
-
-        >
+      <div v-if="data.done">
+        <q-card class="my-card-subs" flat bordered>
           <q-card-section horizontal>
             <q-card-section class="q-pt-xs">
               <div class="text-overline text-black">{{ data.fullName }}</div>
               <div class="text-h5 q-mt-sm q-mb-xs text-black">Discuss</div>
               <div
-                class="text-caption text-black"
+                class="text-caption text-grey"
                 v-html="data.quillEditor"
               ></div>
             </q-card-section>
@@ -71,7 +66,13 @@
           <q-card-actions>
             <q-btn flat round icon="event" class="text-black" />
             <q-btn flat class="text-black"> {{ data.createdAt }} </q-btn>
-            <q-btn flat color="primary" label="Done" icon-right="done"  @click="doneDisc(data.id)"/>
+            <q-btn
+              flat
+              color="red"
+              label="Undone"
+              icon-right="close"
+              @click="undoneDisc(data.id)"
+            />
           </q-card-actions>
         </q-card>
       </div>
@@ -98,12 +99,12 @@ export default {
       // return 0;
     });
 
-    const doneDisc = async (docId) => {
-      console.log(docId)
+    const undoneDisc = async (docId) => {
+      console.log(docId);
       await doneDiscussion(docId);
-    }
+    };
 
-    return { formatedConsultation, loading, doneDisc };
+    return { formatedConsultation, loading, undoneDisc };
   },
 };
 </script>

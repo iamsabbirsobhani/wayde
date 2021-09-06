@@ -17,6 +17,7 @@
           <div>
             Admin
             <q-btn
+              style="margin-left: 10px"
               color="white"
               text-color="black"
               label="Log Out"
@@ -37,20 +38,37 @@
       <!-- drawer content -->
       <q-btn
         style="font-size: 18px"
-        class="full-width q-pa-md q-mt-md bg-primary text-white"
+        class="full-width q-pa-md q-mt-md text-black"
+        flat
+        label="Home"
+        @click="btnHome"
+      />
+      <q-btn
+        style="font-size: 18px"
+        class="full-width q-pa-md q-mt-md text-black"
+        flat
         label="CONSULTATION"
         @click="btnConsult"
       />
       <q-btn
         style="font-size: 18px"
-        class="full-width q-pa-md q-mt-md bg-primary text-white"
+        class="full-width q-pa-md q-mt-md text-black"
+        flat
+        label="CONSULTATION Done"
+        @click="btnConsultDone"
+      />
+      <q-btn
+        style="font-size: 18px"
+        class="full-width q-pa-md q-mt-md text-black"
         label="Subscribers"
+        flat
         @click="btnSubs"
       />
       <q-btn
         style="font-size: 18px"
-        class="full-width q-pa-md q-mt-md bg-primary text-white"
+        class="full-width q-pa-md q-mt-md text-black"
         label="Visitors"
+        flat
         @click="btnVisitors"
       />
     </q-drawer>
@@ -59,6 +77,20 @@
       <Consultation v-if="consult" />
       <Subscriber v-if="subscriber" />
       <Visitors v-if="visitors" />
+      <DoneConsultation v-if="doneConsult" />
+      <div v-if="welcome">
+        <q-card class="my-card" flat bordered>
+          <q-img src="https://cdn.quasar.dev/img/parallax2.jpg" />
+
+          <q-card-section>
+            <div class="text-overline text-orange-9">Wayde.in</div>
+            <div class="text-h5 q-mt-sm q-mb-xs">Welcome to Wayde Admin Panel</div>
+            <div class="text-caption text-grey">
+              Code Build Run
+            </div>
+          </q-card-section>
+        </q-card>
+      </div>
       <router-view />
     </q-page-container>
 
@@ -83,13 +115,16 @@ import Consultation from "../SubComponents/Consultation";
 import Subscriber from "../SubComponents/Subscriber";
 import Visitors from "../SubComponents/Visitors";
 import { useRouter } from "vue-router";
+import DoneConsultation from "../subComponents/DoneConsultation.vue";
 
 export default {
-  components: { Consultation, Subscriber, Visitors },
+  components: { Consultation, Subscriber, Visitors, DoneConsultation },
   setup() {
     const leftDrawerOpen = ref(false);
     const consult = ref(false);
+    const doneConsult = ref(false);
     const subscriber = ref(false);
+    const welcome = ref(true);
     const visitors = ref(false);
     const router = useRouter();
 
@@ -102,30 +137,54 @@ export default {
       subscriber.value = false;
       visitors.value = false;
       leftDrawerOpen.value = false;
+      doneConsult.value = false;
+      welcome.value = false;
     };
     const btnSubs = () => {
       subscriber.value = !subscriber.value;
       visitors.value = false;
       consult.value = false;
+      doneConsult.value = false;
       leftDrawerOpen.value = false;
+      welcome.value = false;
     };
+
     const btnVisitors = () => {
       visitors.value = !visitors.value;
       subscriber.value = false;
       consult.value = false;
       leftDrawerOpen.value = false;
+      doneConsult.value = false;
+      welcome.value = false;
+    };
+
+    const btnConsultDone = () => {
+      doneConsult.value = !doneConsult.value;
+      subscriber.value = false;
+      consult.value = false;
+      leftDrawerOpen.value = false;
+      welcome.value = false;
     };
 
     const signOut = () => {
       projectAuth
         .signOut()
         .then(() => {
-          console.log('sdf')
+          console.log("sdf");
           router.push({ name: "AdminLogin" });
         })
         .catch((error) => {
           // An error happened.
         });
+    };
+
+    const btnHome = () => {
+      welcome.value = !welcome.value;
+      doneConsult.value = false;
+      subscriber.value = false;
+      consult.value = false;
+      leftDrawerOpen.value = false;
+      visitors.value = false;
     };
 
     return {
@@ -140,7 +199,23 @@ export default {
       btnVisitors,
       visitors,
       signOut,
+      btnConsultDone,
+      doneConsult,
+      welcome,
+      btnHome,
     };
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.my-card {
+  width: 400px;
+  margin: 30px auto;
+}
+@media (max-width: 500px) {
+  .my-card {
+    width: 300px;
+  }
+}
+</style>

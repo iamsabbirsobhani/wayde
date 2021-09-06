@@ -12,13 +12,13 @@ const getSubscribers = () => {
     // type.value = null
     loading.value = true;
     let collectionRef = projectFirestore.collection('subscribers')
-    // .orderBy('createdAt', 'asc')
+    .orderBy('createdAt', 'desc')
 
     collectionRef.onSnapshot((snap) => {
         let results = []
         // console.log('snapshot')
         snap.docs.forEach(doc => {
-            // doc.data().createdAt &&
+            doc.data().createdAt &&
                  results.push({
                      ...doc.data(),
                      id: doc.id
