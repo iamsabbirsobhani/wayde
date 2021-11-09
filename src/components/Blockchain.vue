@@ -181,7 +181,7 @@
         </q-card-section>
       </q-card>
 
-      <q-card :style="isDarkBg" class="my-card-bdp">
+      <!-- <q-card :style="isDarkBg" class="my-card-bdp">
         <q-card-section class="bdp-card-flex">
           <img
             data-aos="fade-right"
@@ -208,7 +208,7 @@
             </div>
           </div>
         </q-card-section>
-      </q-card>
+      </q-card> -->
     </div>
     <!-- BLOCKCHAIN DEVELOPMENT PRINCIPLES WE STICK TO -->
 
